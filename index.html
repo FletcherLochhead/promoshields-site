@@ -1,14 +1,78 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PromoShields</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      header {
+        background: #000;
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+      .hero {
+        text-align: center;
+        padding: 2rem;
+      }
+      .hero img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+      }
+      .counter {
+        font-size: 2rem;
+        margin: 1rem 0;
+      }
+      section {
+        padding: 2rem;
+      }
+      .cta {
+        background-color: #0077ff;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        font-size: 1.25rem;
+        margin-top: 2rem;
+        border-radius: 8px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <!-- <script type="module" src="/src/main.jsx"></script> -->
+    <header>
+      <h1>PromoShields</h1>
+      <p>Protecting your drink. Promoting your brand.</p>
+    </header>
+
+    <div class="hero">
+      <img src="https://via.placeholder.com/800x400?text=PromoShields+Hero+Image" alt="PromoShields in action" />
+      <div class="counter">
+        PromoShields Deployed: <span id="count">1,234</span>
+      </div>
+    </div>
+
+    <section>
+      <h2>About Us</h2>
+      <p>PromoShields is a simple, eco-friendly drink cover that helps prevent drink spiking while offering an advertising platform. We believe in safety and smart marketing.</p>
+    </section>
+
+    <section>
+      <h2>How It Works</h2>
+      <p>Our single-use covers seal your drink, prevent tampering, and display your brand in a fun and visible way. Perfect for bars, events, and parties.</p>
+    </section>
+
+    <div class="cta">
+      Want PromoShields at your venue? Contact us today!
+    </div>
   </body>
 </html>
-
