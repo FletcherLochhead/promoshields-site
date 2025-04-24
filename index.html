@@ -1,78 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PromoShields</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f5f5f5;
-        color: #333;
-      }
-      header {
-        background: #000;
-        color: white;
-        padding: 2rem;
-        text-align: center;
-      }
-      .hero {
-        text-align: center;
-        padding: 2rem;
-      }
-      .hero img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 12px;
-      }
-      .counter {
-        font-size: 2rem;
-        margin: 1rem 0;
-      }
-      section {
-        padding: 2rem;
-      }
-      .cta {
-        background-color: #0077ff;
-        color: white;
-        padding: 1rem;
-        text-align: center;
-        font-size: 1.25rem;
-        margin-top: 2rem;
-        border-radius: 8px;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>PromoShields</h1>
-      <p>Protecting your drink. Promoting your brand.</p>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PromoShields</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <div class="hero">
-      <img src="https://via.placeholder.com/800x400?text=PromoShields+Hero+Image" alt="PromoShields in action" />
-      <div class="counter">
-        PromoShields Deployed: <span id="count">1,234</span>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1580042318983-414f471a65d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      background-color: #00b894;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #019875;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .counter {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #00b894;
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .how-it-works {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .step {
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #f7f7f7;
+      color: #777;
+    }
+
+    @media (min-width: 768px) {
+      header h1 {
+        font-size: 4rem;
+      }
+
+      .how-it-works {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .step {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>PromoShields</h1>
+    <p>Protect your drink. Protect your night. Eco-friendly single-use covers designed to prevent drink spiking – powered by brands that care.</p>
+    <a href="#about" class="btn">Learn More</a>
+  </header>
+
+  <section id="counter">
+    <h2>PromoShields Deployed</h2>
+    <div class="counter" id="liveCounter">0</div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      We're a social enterprise focused on real-world safety. PromoShields combines sustainability, innovation, and brand power to tackle the growing problem of drink spiking in a bold new way. Born from youth-led innovation, our mission is simple: safe nights out for everyone.
+    </p>
+  </section>
+
+  <section id="how-it-works">
+    <h2>How It Works</h2>
+    <div class="how-it-works">
+      <div class="step">
+        <h3>Step 1</h3>
+        <p>Receive your PromoShields through your favorite venues or events.</p>
+      </div>
+      <div class="step">
+        <h3>Step 2</h3>
+        <p>Peel and place over your drink. Safe, sealed, and stylish.</p>
+      </div>
+      <div class="step">
+        <h3>Step 3</h3>
+        <p>Enjoy your night with confidence – and know that you’re helping make nights safer for everyone.</p>
       </div>
     </div>
+  </section>
 
-    <section>
-      <h2>About Us</h2>
-      <p>PromoShields is a simple, eco-friendly drink cover that helps prevent drink spiking while offering an advertising platform. We believe in safety and smart marketing.</p>
-    </section>
+  <footer>
+    &copy; 2025 PromoShields Ltd. All rights reserved.
+  </footer>
 
-    <section>
-      <h2>How It Works</h2>
-      <p>Our single-use covers seal your drink, prevent tampering, and display your brand in a fun and visible way. Perfect for bars, events, and parties.</p>
-    </section>
+  <script>
+    // Simulated live counter – update this logic to pull real numbers from your backend in the future
+    let deployed = 15230;
+    const counter = document.getElementById("liveCounter");
 
-    <div class="cta">
-      Want PromoShields at your venue? Contact us today!
-    </div>
-  </body>
+    function updateCounter() {
+      deployed += Math.floor(Math.random() * 5); // simulate growth
+      counter.textContent = deployed.toLocaleString();
+    }
+
+    setInterval(updateCounter, 3000);
+  </script>
+
+</body>
 </html>
