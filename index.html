@@ -1,152 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PromoShields</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PromoShields | Protect Your Drink, Protect Yourself</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff;
-      color: #333;
-      scroll-behavior: smooth;
+      background: white;
+      color: #003366;
+      line-height: 1.6;
     }
 
     header {
-      background: url('https://images.unsplash.com/photo-1580042318983-414f471a65d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+      background: #003366;
+      padding: 2rem;
       text-align: center;
       color: white;
-      padding: 20px;
+    }
+
+    header img {
+      width: 120px;
+      margin-bottom: 1rem;
     }
 
     header h1 {
-      font-size: 3rem;
-      font-weight: 600;
-      margin-bottom: 10px;
+      font-size: 2.5rem;
     }
 
-    header p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      max-width: 600px;
+    nav {
+      background: #0055aa;
+      padding: 1rem;
+      text-align: center;
     }
 
-    .btn {
-      padding: 14px 30px;
-      background-color: #00b894;
+    nav a {
       color: white;
+      margin: 0 1rem;
       text-decoration: none;
-      font-weight: bold;
-      border-radius: 50px;
-      transition: background 0.3s;
+      font-weight: 600;
+      transition: 0.3s;
     }
 
-    .btn:hover {
-      background-color: #019875;
+    nav a:hover {
+      color: #aaddff;
     }
 
     section {
-      padding: 80px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .counter {
-      font-size: 4rem;
-      font-weight: bold;
-      color: #00b894;
-      text-align: center;
-      margin: 30px 0;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
     }
 
     .how-it-works {
       display: flex;
-      flex-direction: column;
-      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
     }
 
-    .step {
-      background-color: #f2f2f2;
-      padding: 20px;
-      border-radius: 12px;
+    .card {
+      background: #f0f8ff;
+      padding: 2rem;
+      border-radius: 10px;
+      flex: 1 1 300px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .contact-form {
+      background: #f0f8ff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      background: #003366;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #0055aa;
     }
 
     footer {
+      background: #003366;
+      color: white;
       text-align: center;
-      padding: 40px 20px;
-      background-color: #f7f7f7;
-      color: #777;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
     }
 
-    @media (min-width: 768px) {
+    .fade {
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+
+    @media (max-width: 768px) {
       header h1 {
-        font-size: 4rem;
-      }
-
-      .how-it-works {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-      .step {
-        flex: 1;
+        font-size: 2rem;
       }
     }
   </style>
 </head>
+
 <body>
 
-  <header>
+  <header class="fade">
+    <img src="promologo.png" alt="PromoShields Logo">
     <h1>PromoShields</h1>
-    <p>Protect your drink. Protect your night. Eco-friendly single-use covers designed to prevent drink spiking – powered by brands that care.</p>
-    <a href="#about" class="btn">Learn More</a>
+    <p>Protect Your Drink, Protect Yourself</p>
   </header>
 
-  <section id="counter">
-    <h2>PromoShields Deployed</h2>
-    <div class="counter" id="liveCounter">0</div>
-  </section>
+  <nav>
+    <a href="#how">How It Works</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>
-      We're a social enterprise focused on real-world safety. PromoShields combines sustainability, innovation, and brand power to tackle the growing problem of drink spiking in a bold new way. Born from youth-led innovation, our mission is simple: safe nights out for everyone.
-    </p>
-  </section>
-
-  <section id="how-it-works">
+  <section id="how">
     <h2>How It Works</h2>
     <div class="how-it-works">
-      <div class="step">
-        <h3>Step 1</h3>
-        <p>Receive your PromoShields through your favorite venues or events.</p>
+      <div class="card fade">
+        <h3>1. Place</h3>
+        <p>Place your PromoShield over your drink to protect it from unwanted substances.</p>
       </div>
-      <div class="step">
-        <h3>Step 2</h3>
-        <p>Peel and place over your drink. Safe, sealed, and stylish.</p>
+      <div class="card fade">
+        <h3>2. Enjoy</h3>
+        <p>Enjoy your event stress-free knowing your drink is shielded.</p>
       </div>
-      <div class="step">
-        <h3>Step 3</h3>
-        <p>Enjoy your night with confidence – and know that you’re helping make nights safer for everyone.</p>
+      <div class="card fade">
+        <h3>3. Recycle</h3>
+        <p>PromoShields are eco-friendly and can be recycled after use!</p>
       </div>
+    </div>
+  </section>
+
+  <section id="about" class="fade">
+    <h2>About PromoShields</h2>
+    <p>PromoShields was founded with a mission to protect people in social environments by offering simple, effective, eco-friendly drink protection. We believe that a safer night out is a better night out. Our shields deter drink spiking and bring peace of mind to all partygoers.</p>
+  </section>
+
+  <section id="contact" class="fade">
+    <h2>Contact Us</h2>
+    <div class="contact-form">
+      <form action="mailto:Promoshields@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="Name" placeholder="Your Name" required>
+        <input type="email" name="Email" placeholder="Your Email" required>
+        <textarea name="Message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <p>Or reach us directly:</p>
+      <p><strong>Phone:</strong> <a href="tel:+6421959152">021 959 152</a></p>
+      <p><strong>Email:</strong> <a href="mailto:Promoshields@gmail.com">Promoshields@gmail.com</a></p>
     </div>
   </section>
 
@@ -154,18 +191,6 @@
     &copy; 2025 PromoShields Ltd. All rights reserved.
   </footer>
 
-  <script>
-    // Simulated live counter – update this logic to pull real numbers from your backend in the future
-    let deployed = 15230;
-    const counter = document.getElementById("liveCounter");
-
-    function updateCounter() {
-      deployed += Math.floor(Math.random() * 5); // simulate growth
-      counter.textContent = deployed.toLocaleString();
-    }
-
-    setInterval(updateCounter, 3000);
-  </script>
-
 </body>
+
 </html>
