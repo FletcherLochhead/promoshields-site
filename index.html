@@ -1,73 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="PromoShields: Eco-Friendly Drink Protection">
-  <title>PromoShields</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PromoShields Ltd - Protect What Matters</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #007bff;
+      --accent: #00ffe1;
+      --bg: #000;
+      --text: #fff;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      backdrop-filter: blur(8px);
+    }
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+    nav a {
+      color: var(--text);
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1575066941331-ef95d294f00b?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    .hero-content {
+      position: relative;
+      color: var(--text);
+      max-width: 700px;
+      z-index: 2;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .hero-content h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      background-color: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--accent);
+    }
+    .step {
+      margin: 1rem 0;
+    }
+    .counter {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin: auto;
+    }
+    form input, form textarea {
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 5px;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #111;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">
-      <a href="#">PromoShields</a>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <header>
+    <h1>PromoShields</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#product">Product</a>
+      <a href="#counter">Counter</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Hero Section -->
   <section class="hero">
-    <h1>Protect Your Drink. Protect Your Fun.</h1>
-    <p>Join the fight against drink spiking with PromoShields - eco-friendly, effective, and easy to use!</p>
-    <a href="#how-it-works" class="cta-button">Learn More</a>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About PromoShields</h2>
-    <p>PromoShields are designed to protect your drink from drink spiking. Made from eco-friendly materials, these covers provide a simple solution to an urgent problem.</p>
-  </section>
-
-  <!-- How It Works Section -->
-  <section id="how-it-works" class="how-it-works">
-    <h2>How It Works</h2>
-    <div class="steps">
-      <div class="step">
-        <h3>Step 1</h3>
-        <p>Place the PromoShield on your drink.</p>
-      </div>
-      <div class="step">
-        <h3>Step 2</h3>
-        <p>The shield stays in place, keeping your drink safe from unwanted substances.</p>
-      </div>
-      <div class="step">
-        <h3>Step 3</h3>
-        <p>Dispose of the shield responsibly – 100% eco-friendly!</p>
-      </div>
+    <div class="hero-content">
+      <h2>Protect What Matters</h2>
+      <p>Prevent drink spiking with eco-safe PromoShields.</p>
+      <a href="#product" class="btn">See How It Works</a>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Get In Touch</h2>
+  <section id="about">
+    <h2 class="section-title">About Us</h2>
+    <p>PromoShields was created to tackle drink spiking and keep nightlife safe. Every shield is a step toward safer social experiences and ethical marketing.</p>
+    <p>Our founder started this company to make a change — one drink at a time.</p>
+  </section>
+
+  <section id="product">
+    <h2 class="section-title">How It Works</h2>
+    <div class="step"><strong>1.</strong> Peel off the PromoShield</div>
+    <div class="step"><strong>2.</strong> Place it securely on top of your drink</div>
+    <div class="step"><strong>3.</strong> Enjoy knowing your drink is protected</div>
+    <p>Bonus: Each shield displays branded messages and logos from ethical sponsors.</p>
+  </section>
+
+  <section id="counter">
+    <h2 class="section-title">Drinks Protected</h2>
+    <div class="counter" id="counter-value">2,500</div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <p style="text-align:center">
+      Instagram: <a href="https://instagram.com/promoshields" target="_blank">@promoshields</a><br>
+      Email: <a href="mailto:promoshields@gmail.com">promoshields@gmail.com</a><br>
+      Phone: 021 959 152
+    </p>
     <form>
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button class="btn" type="submit">Send Message</button>
     </form>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 PromoShields. All Rights Reserved.</p>
+    <p>&copy; 2025 PromoShields Ltd. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    let count = 2500;
+    const counter = document.getElementById('counter-value');
+    setInterval(() => {
+      count += Math.floor(Math.random() * 5);
+      counter.innerText = count.toLocaleString();
+    }, 2000);
+  </script>
 </body>
 </html>
