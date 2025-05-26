@@ -1,57 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PromoShields Ltd - Protect What Matters</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PromoShields Ltd | Protect What Matters. Prevent drink spiking with eco-safe drink covers. Safety meets innovation." />
+  <meta property="og:title" content="PromoShields Ltd - Protect What Matters" />
+  <meta property="og:image" content="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+  <meta property="og:description" content="Eco-friendly drink covers that prevent drink spiking and offer advertising space. Futuristic safety meets nightlife innovation." />
+  <meta name="theme-color" content="#00bfff" />
+  <title>PromoShields Ltd | Protect What Matters</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --primary: #007bff;
-      --accent: #00ffe1;
-      --bg: #000;
-      --text: #fff;
-    }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+
+    html, body {
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      background-color: #000;
       scroll-behavior: smooth;
     }
+
     header {
-       
-      height: 100vh;
-      background: url('/mnt/data/pexels-chris-f-38966-1283219.jpg') center center / cover no-repeat;
+      position: fixed;
+      width: 100%;
+      padding: 1rem 2rem;
+      z-index: 1000;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-    
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
     }
+
     header h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.5rem;
-      color: var(--accent);
+      color: white;
     }
+
     nav a {
-      color: var(--text);
-      margin-left: 1.5rem;
+      color: white;
       text-decoration: none;
+      margin-left: 1.5rem;
       font-weight: 600;
-      transition: color 0.3s;
     }
-    nav a:hover {
-      color: var(--accent);
-    }
+
     .hero {
-      background: url('https://images.unsplash.com/photo-1575066941331-ef95d294f00b?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      background-image: url('https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
       height: 100vh;
       display: flex;
       align-items: center;
@@ -59,43 +60,131 @@
       text-align: center;
       position: relative;
     }
+
     .hero::after {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
     }
+
     .hero-content {
       position: relative;
-      color: var(--text);
-      max-width: 700px;
       z-index: 2;
-      animation: fadeIn 2s ease-in-out;
+      color: white;
     }
-    .hero-content h2 {
+
+    .hero h2 {
       font-size: 3rem;
       margin-bottom: 1rem;
-      color: var(--accent);
+      font-family: 'Orbitron', sans-serif;
     }
-    .hero-content p {
-      font-size: 1.25rem;
+
+    .hero p {
+      font-size: 1.2rem;
       margin-bottom: 2rem;
     }
-    .btn {
-      background-color: var(--primary);
-      color: #fff;
-      padding: 0.75rem 1.5rem;
+
+    .cta-button {
+      padding: 0.75rem 2rem;
+      background: #00bfff;
+      color: white;
       border: none;
-      cursor: pointer;
       font-size: 1rem;
-      border-radius: 5px;
-      transition: background 0.3s;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
     }
-    .btn:hover {
-      background-color: #0056b3;
+
+    .cta-button:hover {
+      box-shadow: 0 0 20px 5px rgba(0, 191, 255, 0.7);
+    }
+
+    .section {
+      padding: 5rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      font-size: 2rem;
+      font-weight: bold;
+      padding: 2rem 0;
+      color: #00bfff;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 2rem;
+      color: #888;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>PromoShields</h1>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#stats">Stats</a>
+      <a href="#product">Product</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h2>Protect What Matters.</h2>
+      <p>Prevent drink spiking with eco-safe PromoShields. Safety meets innovation.</p>
+      <a href="#product"><button class="cta-button">See How It Works</button></a>
+    </div>
+  </section>
+
+  <section id="stats" class="section">
+    <div class="stats">
+      <div><span id="counter">2500</span>+ Drinks Shielded</div>
+      <div>100+ Partners</div>
+    </div>
+  </section>
+
+  <section id="product" class="section">
+    <h2>How It Works</h2>
+    <p>Just peel, place, and protect. PromoShields are simple, effective, and safe. Made from eco-friendly materials, they offer both safety and brand exposure opportunities.</p>
+    <p>Join our movement to make nightlife safer.</p>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Instagram: @promoshields</p>
+    <p>Email: promoshields@gmail.com</p>
+    <p>Phone: 021 959 152</p>
+  </section>
+
+  <footer>
+    &copy; 2025 PromoShields Ltd. All rights reserved.
+  </footer>
+
+  <script>
+    // Counter Animation
+    const counter = document.getElementById("counter");
+    let value = 2500;
+    setInterval(() => {
+      value++;
+      counter.textContent = value;
+    }, 3000);
+  </script>
+</body>
+
+</html>
     }
     section {
       padding: 4rem 2rem;
