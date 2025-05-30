@@ -71,10 +71,32 @@
       text-align: left;
     }
 
-    .founder {
+    .founders {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin-top: 3rem;
+      gap: 2rem;
+    }
+
+    .founder-card {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: left;
+    }
+
+    .founder-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #00bfff;
+    }
+
+    .founder-card p {
+      margin: 0;
       font-size: 1rem;
-      color: #ccc;
     }
 
     footer {
@@ -83,6 +105,13 @@
       background-color: #111;
       color: #888;
       font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .founder-card {
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -113,9 +142,15 @@
 
       <p>Our vision is to see PromoShields in every bar, festival, and social event where drink safety matters. We believe in combining <strong>innovation, entrepreneurship, and social responsibility</strong> — and we’re just getting started.</p>
 
-      <div class="founder">
-        <p><strong>Fletcher Lochhead</strong> – Founder & Director</p>
-        <p><strong>George Watson</strong> – Co-Founder & Strategic Lead</p>
+      <div class="founders">
+        <div class="founder-card">
+          <img src="https://media.licdn.com/dms/image/v2/D5603AQG3IrMonMEJ9g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721725183438?e=1753920000&v=beta&t=Xoi0a8BfF3pTlse1S7cT-FiI9QghPLIGQm3ZdLnTu0w" alt="Fletcher Lochhead">
+          <p><strong>Fletcher Lochhead</strong><br>Founder & Director</p>
+        </div>
+        <div class="founder-card">
+          <img src="https://media.licdn.com/dms/image/v2/D4D03AQGI-EptwoRwrg/profile-displayphoto-shrink_400_400/B4DZbySrmIHsAg-/0/1747821706082?e=1753920000&v=beta&t=t5ChrZqs1R9jYXazr2C9t1J3lBmUEEelNbqBnBRMWK8" alt="George Watson">
+          <p><strong>George Watson</strong><br>Co-Founder & Strategic Lead</p>
+        </div>
       </div>
     </div>
   </section>
