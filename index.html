@@ -23,6 +23,7 @@
       color: white;
       background-color: #000;
       scroll-behavior: smooth;
+      height: 100%;
     }
 
     header {
@@ -59,6 +60,7 @@
       justify-content: center;
       text-align: center;
       position: relative;
+      padding: 2rem;
     }
 
     .hero::after {
@@ -69,6 +71,7 @@
       height: 100%;
       width: 100%;
       background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
     }
 
     .hero-content {
@@ -77,17 +80,19 @@
       color: white;
       max-width: 600px;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
     }
 
     .hero h2 {
       font-size: 3rem;
-      margin-bottom: 1rem;
       font-family: 'Orbitron', sans-serif;
     }
 
     .hero p {
       font-size: 1.2rem;
-      margin-bottom: 2rem;
     }
 
     .cta-button {
@@ -128,7 +133,7 @@
       text-align: center;
       font-size: 3rem;
       font-weight: bold;
-      color: #00bfff;
+      color: white; /* Changed to white */
     }
 
     #contact {
@@ -179,8 +184,8 @@
       <a href="#product"><button class="cta-button">See How It Works</button></a>
 
       <!-- Moved counter here -->
-      <section id="counter" class="section" style="margin-top: 2rem;">
-        <h2 class="section-title">Drinks Protected</h2>
+      <section id="counter" class="section" style="margin-top: 2rem; padding: 0;">
+        <h2 class="section-title" style="color: white;">Drinks Protected</h2>
         <div class="counter" id="counter-value">2,500</div>
       </section>
     </div>
