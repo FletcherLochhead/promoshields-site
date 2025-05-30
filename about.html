@@ -29,6 +29,9 @@
 
     header {
       position: fixed;
+      top: 0; /* ensure header is flush at the top */
+      left: 0;
+      right: 0;
       width: 100%;
       padding: 1rem 2rem;
       z-index: 1000;
@@ -51,43 +54,8 @@
       font-weight: 600;
     }
 
-    /* Container for founders images moved to top */
-    .founders {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      padding: 6rem 2rem 2rem; /* top padding adjusted for fixed header */
-      background: rgba(0, 0, 0, 0.8);
-    }
-
-    .founder-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1rem;
-    }
-
-    .founder-card img {
-      width: 180px;   /* Increased size */
-      height: 180px;  /* Increased size */
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #00bfff;
-      transition: transform 0.3s ease;
-    }
-
-    .founder-card img:hover {
-      transform: scale(1.05);
-    }
-
-    .founder-card p {
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-
     .section {
-      padding: 2rem 2rem 4rem;
+      padding: 6rem 2rem 4rem;
       max-width: 1000px;
       margin: auto;
       text-align: center;
@@ -107,6 +75,34 @@
       text-align: left;
     }
 
+    .founders {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 3rem;
+      gap: 2rem;
+    }
+
+    .founder-card {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: left;
+    }
+
+    .founder-card img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #00bfff;
+    }
+
+    .founder-card p {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
     footer {
       text-align: center;
       padding: 2rem;
@@ -116,14 +112,9 @@
     }
 
     @media (max-width: 600px) {
-      .founders {
+      .founder-card {
         flex-direction: column;
-        padding: 5rem 1rem 2rem;
-      }
-
-      .founder-card img {
-        width: 140px;
-        height: 140px;
+        text-align: center;
       }
     }
   </style>
@@ -142,19 +133,7 @@
     </nav>
   </header>
 
-  <!-- Founders images moved to top -->
-  <section class="founders">
-    <div class="founder-card">
-      <img src="https://media.licdn.com/dms/image/v2/D5603AQG3IrMonMEJ9g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721725183438?e=1753920000&v=beta&t=Xoi0a8BfF3pTlse1S7cT-FiI9QghPLIGQm3ZdLnTu0w" alt="Fletcher Lochhead" />
-      <p><strong>Fletcher Lochhead</strong><br>Co-Founder</p>
-    </div>
-    <div class="founder-card">
-      <img src="https://media.licdn.com/dms/image/v2/D4D03AQGI-EptwoRwrg/profile-displayphoto-shrink_400_400/B4DZbySrmIHsAg-/0/1747821706082?e=1753920000&v=beta&t=t5ChrZqs1R9jYXazr2C9t1J3lBmUEEelNbqBnBRMWK8" alt="George Watson" />
-      <p><strong>George Watson</strong><br>Co-Founder</p>
-    </div>
-  </section>
-
-  <section class="section" id="about">
+  <section class="section" id="about" style="padding-top: 8rem;">
     <h2 class="section-title">Our Story</h2>
     <div class="content">
       <p>PromoShields Ltd was founded by <strong>Fletcher Lochhead</strong> and <strong>George Watson</strong> — two young innovators with a bold mission: to create a safer nightlife culture by protecting drinks from spiking while simultaneously giving brands a positive way to advertise.</p>
@@ -166,6 +145,17 @@
       <p>Our model is simple and powerful. <strong>Businesses sponsor the shields with branded messages and logos</strong>, giving them a chance to make a meaningful social impact while gaining brand visibility. In return, <strong>bars receive the covers for free</strong>, and their <strong>customers get protected</strong>. It’s a win-win-win for safety, business, and the public.</p>
 
       <p>Our vision is to see PromoShields in every bar, festival, and social event where drink safety matters. We believe in combining <strong>innovation, entrepreneurship, and social responsibility</strong> — and we’re just getting started.</p>
+
+      <div class="founders">
+        <div class="founder-card">
+          <img src="https://media.licdn.com/dms/image/v2/D5603AQG3IrMonMEJ9g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721725183438?e=1753920000&v=beta&t=Xoi0a8BfF3pTlse1S7cT-FiI9QghPLIGQm3ZdLnTu0w" alt="Fletcher Lochhead" />
+          <p><strong>Fletcher Lochhead</strong><br />Co-Founder</p>
+        </div>
+        <div class="founder-card">
+          <img src="https://media.licdn.com/dms/image/v2/D4D03AQGI-EptwoRwrg/profile-displayphoto-shrink_400_400/B4DZbySrmIHsAg-/0/1747821706082?e=1753920000&v=beta&t=t5ChrZqs1R9jYXazr2C9t1J3lBmUEEelNbqBnBRMWK8" alt="George Watson" />
+          <p><strong>George Watson</strong><br />Co-Founder</p>
+        </div>
+      </div>
     </div>
   </section>
 
