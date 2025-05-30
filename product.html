@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Product | PromoShields</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      background-color: #000;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 600;
+    }
+
+    main {
+      padding-top: 100px;
+      max-width: 1000px;
+      margin: auto;
+      padding: 5rem 2rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: #00bfff;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .images img {
+      width: 300px;
+      border-radius: 16px;
+      border: 2px solid #00bfff;
+    }
+
+    .how-it-works {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .how-it-works div {
+      background-color: #111;
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid #333;
+      transition: transform 0.3s;
+    }
+
+    .how-it-works div:hover {
+      transform: translateY(-5px);
+    }
+
+    .how-it-works h3 {
+      color: #00bfff;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #111;
+      color: #888;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>PromoShields</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="product.html">Product</a>
+      <a href="counter.html">Counter</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Our Product</h2>
+
+    <div class="section">
+      <p>PromoShields are eco-friendly, single-use drink covers designed to protect people from drink spiking — while giving businesses a powerful new way to advertise.</p>
+      <p>Each cover is made from recyclable material and fits over most glasses and cups. Customers simply peel it off the stack, press it over their drink, and enjoy peace of mind.</p>
+
+      <div class="images">
+        <!-- Replace these with real images -->
+        <img src="images/cover-on-glass-1.jpg" alt="PromoShield on drink" />
+        <img src="images/cover-on-glass-2.jpg" alt="PromoShield example" />
+      </div>
+    </div>
+
+    <h2>How It Works</h2>
+
+    <div class="how-it-works">
+      <div>
+        <h3>✅ Bars Get It Free</h3>
+        <p>PromoShields are supplied at no cost to hospitality venues. Simply display the dispenser and give customers access to protection — no setup, no hassle.</p>
+      </div>
+      <div>
+        <h3>📢 Businesses Advertise</h3>
+        <p>Each PromoShield is custom-branded with a business's message. It’s direct, physical marketing — right in the hands of your target audience.</p>
+      </div>
+      <div>
+        <h3>🛡️ Customers Get Protected</h3>
+        <p>Patrons get peace of mind knowing their drink is safer from tampering. A simple, effective way to enjoy nights out with less worry.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 PromoShields Ltd. All rights reserved.
+  </footer>
+
+</body>
+</html>
