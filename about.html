@@ -51,16 +51,13 @@
       font-weight: 600;
     }
 
-    /* Container for founders images at top */
-    .founders-top {
-      margin-top: 80px; /* To clear fixed header */
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
+    /* Container for founders images moved to top */
+    .founders {
       display: flex;
       justify-content: center;
       gap: 3rem;
-      padding: 2rem 1rem 3rem;
+      padding: 6rem 2rem 2rem; /* top padding adjusted for fixed header */
+      background: rgba(0, 0, 0, 0.8);
     }
 
     .founder-card {
@@ -68,15 +65,15 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      gap: 1rem;
     }
 
     .founder-card img {
-      width: 180px;
-      height: 180px;
+      width: 180px;   /* Increased size */
+      height: 180px;  /* Increased size */
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid #00bfff;
-      margin-bottom: 1rem;
       transition: transform 0.3s ease;
     }
 
@@ -85,31 +82,29 @@
     }
 
     .founder-card p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 600;
     }
 
-    /* Section styling */
     .section {
       padding: 2rem 2rem 4rem;
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
-      text-align: left;
-      margin-bottom: 3rem;
+      text-align: center;
     }
 
     .section-title {
       font-size: 2.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       color: #00bfff;
       font-family: 'Orbitron', sans-serif;
-      text-align: center;
     }
 
     .content p {
       font-size: 1.2rem;
       line-height: 1.8;
       margin-bottom: 1.5rem;
+      text-align: left;
     }
 
     footer {
@@ -120,21 +115,15 @@
       font-size: 0.9rem;
     }
 
-    @media (max-width: 900px) {
-      .founders-top {
+    @media (max-width: 600px) {
+      .founders {
         flex-direction: column;
-        gap: 2rem;
-        margin-top: 100px;
+        padding: 5rem 1rem 2rem;
       }
 
       .founder-card img {
         width: 140px;
         height: 140px;
-      }
-
-      .section {
-        max-width: 95%;
-        padding: 1rem 1rem 3rem;
       }
     }
   </style>
@@ -153,17 +142,17 @@
     </nav>
   </header>
 
-  <!-- Founders images at top -->
-  <div class="founders-top">
+  <!-- Founders images moved to top -->
+  <section class="founders">
     <div class="founder-card">
       <img src="https://media.licdn.com/dms/image/v2/D5603AQG3IrMonMEJ9g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721725183438?e=1753920000&v=beta&t=Xoi0a8BfF3pTlse1S7cT-FiI9QghPLIGQm3ZdLnTu0w" alt="Fletcher Lochhead" />
-      <p>Fletcher Lochhead<br>Co-Founder</p>
+      <p><strong>Fletcher Lochhead</strong><br>Co-Founder</p>
     </div>
     <div class="founder-card">
       <img src="https://media.licdn.com/dms/image/v2/D4D03AQGI-EptwoRwrg/profile-displayphoto-shrink_400_400/B4DZbySrmIHsAg-/0/1747821706082?e=1753920000&v=beta&t=t5ChrZqs1R9jYXazr2C9t1J3lBmUEEelNbqBnBRMWK8" alt="George Watson" />
-      <p>George Watson<br>Co-Founder</p>
+      <p><strong>George Watson</strong><br>Co-Founder</p>
     </div>
-  </div>
+  </section>
 
   <section class="section" id="about">
     <h2 class="section-title">Our Story</h2>
