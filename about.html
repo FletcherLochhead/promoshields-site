@@ -1,42 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>About Us | PromoShields</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn more about PromoShields Ltd. Discover our story, mission, and the team behind the drink safety innovation." />
+  <meta property="og:title" content="About PromoShields Ltd" />
+  <meta property="og:image" content="favicon.png" />
+  <meta property="og:description" content="Founded by Fletcher Lochhead and George Watson, PromoShields aims to make nightlife safer while offering a new way to advertise ethically." />
+  <meta name="theme-color" content="#00bfff" />
+  <title>About Us | PromoShields Ltd</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      background-color: #000;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 600;
+    }
+
+    .section {
+      padding: 6rem 2rem 4rem;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #00bfff;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .content p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .founder {
+      margin-top: 3rem;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #111;
+      color: #888;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
+
 <body>
+
   <header>
     <h1>PromoShields</h1>
     <nav>
       <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
+      <a href="about.html">About</a>
       <a href="product.html">Product</a>
       <a href="counter.html">Counter</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <section class="about-section">
-    <h2>Our Mission</h2>
-    <p>
-      PromoShields exists to make nightlife safer and more enjoyable. We provide eco-friendly, single-use drink covers that protect against drink spiking—empowering people to enjoy themselves without fear.
-    </p>
+  <section class="section" id="about">
+    <h2 class="section-title">Our Story</h2>
+    <div class="content">
+      <p>PromoShields Ltd was founded by <strong>Fletcher Lochhead</strong> and <strong>George Watson</strong> — two young innovators with a bold mission: to create a safer nightlife culture by protecting drinks from spiking while simultaneously giving brands a positive way to advertise.</p>
 
-    <h2>Our Story</h2>
-    <p>
-      The idea for PromoShields started with a simple question: “How can we prevent drink spiking without ruining the vibe of a night out?” Founded by a young Kiwi entrepreneur, PromoShields combines safety and style in a way that makes a real difference. What began as a local safety initiative has grown into a movement.
-    </p>
+      <p>The idea for PromoShields started in 2023, when Fletcher began working on early-stage prototypes as part of the <strong>Young Enterprise Scheme</strong>. With a drive to tackle the widespread problem of drink spiking, he explored countless materials and methods to make drink safety simple, fast, and effective. Later, George joined the mission, bringing critical insight, creativity, and energy into turning the concept into a fully-fledged business.</p>
 
-    <h2>Why We Care</h2>
-    <p>
-      Drink spiking is a global issue that affects thousands of people every year. We're passionate about providing a practical solution that clubs, festivals, and individuals can trust. Every PromoShield used is a step toward a safer world.
-    </p>
+      <p>Fast forward to today, PromoShields is distributing drink covers to bars and venues across New Zealand. We’ve worked closely with <strong>local communities, events, schools, and hospitality venues</strong> to make our mission a reality. We also participated in <strong>Momentum</strong> — a business mentorship and development programme — to refine our strategy and scale our impact.</p>
+
+      <p>Our model is simple and powerful. <strong>Businesses sponsor the shields with branded messages and logos</strong>, giving them a chance to make a meaningful social impact while gaining brand visibility. In return, <strong>bars receive the covers for free</strong>, and their <strong>customers get protected</strong>. It’s a win-win-win for safety, business, and the public.</p>
+
+      <p>Our vision is to see PromoShields in every bar, festival, and social event where drink safety matters. We believe in combining <strong>innovation, entrepreneurship, and social responsibility</strong> — and we’re just getting started.</p>
+
+      <div class="founder">
+        <p><strong>Fletcher Lochhead</strong> – Founder & Director</p>
+        <p><strong>George Watson</strong> – Co-Founder & Strategic Lead</p>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 PromoShields Ltd | Instagram: @promoshields | Email: promoshields@gmail.com | Phone: 021 959 152</p>
+    &copy; 2025 PromoShields Ltd. All rights reserved.
   </footer>
+
 </body>
 </html>
-
