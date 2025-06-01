@@ -111,29 +111,44 @@
       box-shadow: 0 0 20px 5px rgba(0, 191, 255, 0.7);
     }
 
-    .section {
+    #showcase {
+      background-color: #111;
       padding: 5rem 2rem;
-      max-width: 1000px;
-      margin: auto;
       text-align: center;
     }
 
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 2rem;
+    #showcase h2 {
       color: #00bfff;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
     }
 
-    .step {
-      margin: 1rem 0;
-      font-size: 1.2rem;
+    #showcase p {
+      color: #ccc;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
     }
 
-    .counter {
-      text-align: center;
-      font-size: 3rem;
-      font-weight: bold;
-      color: white;
+    .circle-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .circle-grid img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .circle-grid img:hover {
+      transform: scale(1.1);
     }
 
     #contact {
@@ -160,11 +175,18 @@
       color: #888;
       font-size: 0.9rem;
     }
+
+    .counter {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: white;
+    }
   </style>
 </head>
 
 <body>
-  
+
   <header>
     <h1>PromoShields</h1>
     <nav>
@@ -179,9 +201,8 @@
     <div class="hero-content">
       <h2>Protect What Matters.</h2>
       <p>Prevent drink spiking with eco-safe PromoShields.</p>
-      <a href="#product"><button class="cta-button">See How It Works</button></a>
+      <a href="#showcase"><button class="cta-button">Discover Possibilities</button></a>
 
-      <!-- Counter -->
       <section id="counter" class="section" style="margin-top: 2rem; padding: 0;">
         <h2 class="section-title" style="color: white;">Drinks Protected</h2>
         <div class="counter" id="counter-value">2,500</div>
@@ -189,23 +210,18 @@
     </div>
   </section>
 
-  <!-- UPDATED ABOUT SECTION -->
-  <section id="about" class="section">
-    <h2 class="section-title">About Us</h2>
+  <!-- CREATIVE MID SECTION -->
+  <section id="showcase">
+    <h2>Endless Advertising Possibilities</h2>
     <p>
-      PromoShields is run by two passionate entrepreneurs, Fletcher Lochhead and George Watson, who believe safety should never be compromised in the pursuit of fun. Our mission is to empower individuals with innovative, eco-conscious solutions that keep nightlife safe and stylish.
+      PromoShields aren't just for protection — they're your personal canvas for creativity. Design your drink shields to match your brand, event, or campaign. From football promotions to interactive QR codes, the options are limitless.
     </p>
-    <p style="margin-top: 1rem;">
-      But this is just the beginning. The possibilities with PromoShields are endless. From customizable designs for events and festivals to collaborations with ethical brands, our drink covers open a new world of awareness and connection. Imagine shields with QR codes for exclusive offers, messages that spark conversation, or even real-time brand interactions — PromoShields is more than protection, it’s a platform for creativity, safety, and positive impact.
-    </p>
-  </section>
-
-  <section id="product" class="section">
-    <h2 class="section-title">How It Works</h2>
-    <div class="step"><strong>1.</strong> Peel off the PromoShield</div>
-    <div class="step"><strong>2.</strong> Place it securely on top of your drink</div>
-    <div class="step"><strong>3.</strong> Enjoy knowing your drink is protected</div>
-    <p>Bonus: Each shield displays branded messages and logos from ethical sponsors.</p>
+    <div class="circle-grid">
+      <img src="https://i.ibb.co/J7nYhgd/logo-qr.png" alt="Your Logo" />
+      <img src="https://i.ibb.co/tHgpF7G/drink-menu-qr.png" alt="Drinks Menu" />
+      <img src="https://i.ibb.co/0yR1Vv5/football.png" alt="Football Event" />
+      <img src="https://i.ibb.co/Fbw7pbd/new-beer.png" alt="New Beer Promo" />
+    </div>
   </section>
 
   <section id="contact">
@@ -223,7 +239,6 @@
   </footer>
 
   <script>
-    // Counter Animation
     const counter = document.getElementById("counter-value");
     let value = 2450;
     setInterval(() => {
