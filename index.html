@@ -11,6 +11,9 @@
   <meta name="theme-color" content="#00bfff" />
   <title>PromoShields Ltd | Protect What Matters</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- AOS Animation Styles -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
   <style>
     * {
       margin: 0;
@@ -199,7 +202,59 @@
       color: #888;
       font-size: 0.9rem;
     }
-  </style>
+
+    #on-glass {
+      background-color: #000;
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+  
+    .on-glass-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  
+    #on-glass .section-title {
+      color: #00bfff;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 1px;
+    }
+  
+    #on-glass .section-subtext {
+      color: #bbb;
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+  
+    .glass-image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .glass-image-grid img {
+      width: 280px;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 191, 255, 0.3);
+      object-fit: cover;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+  
+    .glass-image-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(0, 191, 255, 0.6);
+    }
+</style>
+
 </head>
 
 <body>
@@ -238,6 +293,21 @@
     </div>
   </section>
 
+  <section id="on-glass">
+  <div class="on-glass-wrapper" data-aos="fade-up">
+    <h2 class="section-title">Real Covers on Real Glasses</h2>
+    <p class="section-subtext">
+      See PromoShields in action – sleek, secure, and seamlessly integrated into any night out.
+    </p>
+    <div class="glass-image-grid">
+      <img src="https://i.ibb.co/Ykc4B4x/glass1.jpg" alt="PromoShield on glass 1" data-aos="zoom-in" data-aos-delay="100" />
+      <img src="https://i.ibb.co/1fwfshy/glass2.jpg" alt="PromoShield on glass 2" data-aos="zoom-in" data-aos-delay="200" />
+      <img src="https://i.ibb.co/Sd6CjPL/glass3.jpg" alt="PromoShield on glass 3" data-aos="zoom-in" data-aos-delay="300" />
+    </div>
+  </div>
+</section>
+
+
 
   <footer>
     &copy; 2025 PromoShields Ltd. All rights reserved.
@@ -251,6 +321,12 @@
       counter.textContent = value.toLocaleString();
     }, 3000);
   </script>
+  <!-- AOS Animation Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+  AOS.init();
+  </script>
+
 </body>
 
 </html>
