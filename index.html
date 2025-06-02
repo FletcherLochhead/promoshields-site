@@ -34,7 +34,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(10px);
     }
 
@@ -79,7 +79,6 @@
       z-index: 2;
       color: white;
       max-width: 600px;
-      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -109,6 +108,21 @@
 
     .cta-button:hover {
       box-shadow: 0 0 20px 5px rgba(0, 191, 255, 0.7);
+    }
+
+    #counter {
+      margin-top: 2rem;
+    }
+
+    #counter h2 {
+      color: white;
+      font-size: 2rem;
+    }
+
+    .counter {
+      font-size: 3rem;
+      font-weight: bold;
+      color: white;
     }
 
     #showcase {
@@ -162,6 +176,16 @@
       gap: 2rem;
     }
 
+    #contact h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    #contact p {
+      margin-top: 0.5rem;
+    }
+
     #contact img {
       width: 100%;
       max-width: 450px;
@@ -175,13 +199,6 @@
       color: #888;
       font-size: 0.9rem;
     }
-
-    .counter {
-      text-align: center;
-      font-size: 3rem;
-      font-weight: bold;
-      color: white;
-    }
   </style>
 </head>
 
@@ -190,10 +207,9 @@
   <header>
     <h1>PromoShields</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="product.html">Product</a>
-      <a href="contact.html">Contact</a>
+      <a href="#hero">Home</a>
+      <a href="#showcase">Product</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -201,20 +217,18 @@
     <div class="hero-content">
       <h2>Protect What Matters.</h2>
       <p>Prevent drink spiking with eco-safe PromoShields.</p>
-      <a href="#showcase"><button class="cta-button">Discover Possibilities</button></a>
-
-      <section id="counter" class="section" style="margin-top: 2rem; padding: 0;">
-        <h2 class="section-title" style="color: white;">Drinks Protected</h2>
+      <a href="#showcase" class="cta-button">Discover Possibilities</a>
+      <section id="counter">
+        <h2>Drinks Protected</h2>
         <div class="counter" id="counter-value">2,500</div>
       </section>
     </div>
   </section>
 
-  <!-- CREATIVE MID SECTION -->
   <section id="showcase">
     <h2>Endless Advertising Possibilities</h2>
     <p>
-      PromoShields aren't just for protection — they're your personal canvas for creativity. Design your drink shields to match your brand, event, or campaign. From bold logos to interactive QR codes that take you straight to the bars menu, showcase promotional offers and much more , the options are limitless.
+      PromoShields aren't just for protection — they're your personal canvas for creativity. Design your drink shields to match your brand, event, or campaign. From bold logos to interactive QR codes linking to bar menus or promotional offers — the options are limitless.
     </p>
     <div class="circle-grid">
       <img src="https://i.ibb.co/J7nYhgd/logo-qr.png" alt="Your Logo" />
@@ -226,11 +240,11 @@
 
   <section id="contact">
     <div style="flex: 1; min-width: 300px;">
-      <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">We would love to hear from you.</h2>
+      <h2>We would love to hear from you.</h2>
       <img src="https://i.ibb.co/JwH105J/Image-26-05-2025-at-10-12-PM.jpg" alt="PromoShields Contact Image">
-      <p style="margin-top: 1rem;">Instagram: @promoshields</p>
-      <p>Email: promoshields@gmail.com</p>
-      <p>Phone: 021 959 152</p>
+      <p>Instagram: <a href="https://instagram.com/promoshields">@promoshields</a></p>
+      <p>Email: <a href="mailto:promoshields@gmail.com">promoshields@gmail.com</a></p>
+      <p>Phone: <a href="tel:+6421959152">021 959 152</a></p>
     </div>
   </section>
 
@@ -240,7 +254,7 @@
 
   <script>
     const counter = document.getElementById("counter-value");
-    let value = 2450;
+    let value = 2500;
     setInterval(() => {
       value++;
       counter.textContent = value.toLocaleString();
