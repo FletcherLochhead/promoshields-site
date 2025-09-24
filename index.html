@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Our Product | PromoShields</title>
+  <meta name="description" content="PromoShields Ltd | Protect what matters. Eco-safe drink covers that help prevent drink spiking and unlock branded experiences." />
+  <title>PromoShields Ltd | Protect what matters</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
   <style>
     :root {
       --brand: #00bfff;
@@ -15,16 +21,13 @@
       --header-h: 72px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     html, body {
-      font-family: 'Poppins', sans-serif;
+      height: 100%;
+      background: var(--bg);
       color: var(--text);
-      background-color: var(--bg);
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       scroll-behavior: smooth;
     }
 
@@ -32,48 +35,44 @@
 
     header {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      inset: 0 0 auto 0;
       height: var(--header-h);
-      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 0 .75rem 0 1rem;
       z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0,0,0,0.7);
       backdrop-filter: blur(10px);
     }
 
     .logo {
+      text-decoration: none;
+      color: var(--text);
       font-family: 'Orbitron', sans-serif;
       font-weight: 800;
+      letter-spacing: .5px;
       font-size: clamp(1.6rem, 3.2vw, 2.1rem);
-      color: var(--text);
-      text-decoration: none;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
     }
 
     nav.links {
       display: flex;
+      align-items: center;
       gap: clamp(.6rem, 1.6vw, 1.25rem);
       white-space: nowrap;
     }
-
     nav.links a {
       color: var(--text);
       text-decoration: none;
       font-weight: 600;
       font-size: clamp(.9rem, 1.2vw, 1rem);
+      opacity: .95;
     }
-
     nav.links a:hover { color: var(--brand); }
 
-    /* Highlight active link blue */
-    nav.links a.active,
-    nav.links a[aria-current="page"] {
-      color: var(--brand);
-    }
-
-    /* Dropdown for phones */
     .nav-select { display: none; }
     .nav-select select {
       background: #111;
@@ -86,81 +85,124 @@
     .sr-only {
       position: absolute;
       width: 1px; height: 1px;
+      padding: 0; margin: -1px;
       overflow: hidden;
       clip: rect(0,0,0,0);
       white-space: nowrap;
+      border: 0;
     }
 
-    main {
-      max-width: 1000px;
-      margin: auto;
-      padding: 5rem 2rem;
-    }
+    section { scroll-margin-top: calc(var(--header-h) + 12px); }
 
-    /* Shared heading style */
-    .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      color: var(--brand);
+    .hero {
+      min-height: calc(100vh - var(--header-h));
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 2rem 1.25rem;
+      position: relative;
+      background-image: url('https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      display: grid;
+      gap: 1rem;
+      justify-items: center;
+    }
+    .hero h1 {
       font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2.2rem, 4.8vw, 3.4rem);
+    }
+    .hero p { font-size: 1.1rem; color: #f3f3f3; }
+
+    .cta-button {
+      padding: 0.75rem 1.5rem;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      border-radius: 28px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: box-shadow .3s ease, transform .05s ease;
+    }
+    .cta-button:hover { box-shadow: 0 0 20px 5px rgba(0,191,255,.7); }
+    .cta-button:active { transform: translateY(1px); }
+
+    #counter { margin-top: .25rem; }
+    #counter h2 { font-size: 1.05rem; }
+    .counter { font-size: clamp(2rem, 5.5vw, 3rem); font-weight: 800; }
+
+    #showcase {
+      background: var(--bg-2);
+      padding: 5rem 1.25rem;
       text-align: center;
     }
-
-    .section {
-      margin-bottom: 3rem;
+    #showcase h2 {
+      color: var(--brand);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      margin-bottom: .75rem;
+      font-family: 'Orbitron', sans-serif;
     }
-
-    .section p {
-      font-size: 1.1rem;
-      line-height: 1.6;
+    #showcase p {
       color: #ccc;
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-size: 1.05rem;
     }
 
-    .images {
+    #on-glass { background: var(--bg); padding: 5rem 1.25rem; text-align: center; }
+    .on-glass-wrapper { max-width: 1200px; margin: 0 auto; }
+    #on-glass .section-title {
+      color: var(--brand);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      margin-bottom: .75rem;
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 1px;
+    }
+    #on-glass .section-subtext {
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .glass-image-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
       justify-content: center;
-      margin-top: 2rem;
+      align-items: center;
     }
-
-    .images img {
-      width: 300px;
-      border-radius: 16px;
-      border: 2px solid var(--brand);
+    .glass-image-grid img {
+      width: 280px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0,191,255,.3);
+      object-fit: cover;
+      transition: transform .4s ease, box-shadow .4s ease;
     }
-
-    .how-it-works {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-      text-align: center;
-    }
-
-    .how-it-works div {
-      background-color: #111;
-      padding: 2rem;
-      border-radius: 16px;
-      border: 1px solid #333;
-      transition: transform 0.3s;
-    }
-
-    .how-it-works div:hover {
-      transform: translateY(-5px);
-    }
-
-    .how-it-works h3 {
-      color: var(--brand);
-      margin-bottom: 1rem;
+    .glass-image-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(0,191,255,.6);
     }
 
     footer {
       text-align: center;
-      padding: 2rem;
-      background-color: var(--bg-2);
+      padding: 2rem 1rem;
+      background: var(--bg-2);
       color: #888;
-      font-size: 0.9rem;
+      font-size: .95rem;
     }
 
     @media (max-width: 520px) {
@@ -169,67 +211,98 @@
     }
   </style>
 </head>
-
 <body>
-
   <header>
-    <a class="logo" href="index.html#hero">PromoShields</a>
+    <a class="logo" href="#hero" aria-label="PromoShields home">PromoShields</a>
 
-    <!-- Menu matches index -->
     <nav class="links" aria-label="Primary">
-      <a href="index.html#hero">Home</a>
-      <a href="index.html#showcase">Imagine</a>
-      <a href="index.html#on-glass">Gallery</a>
-      <a href="index.html#contact-info">Contact</a>
-      <a href="product.html" class="active" aria-current="page">Product</a>
+      <a href="#hero">Home</a>
+      <a href="#showcase">Imagine</a>
+      <a href="#on-glass">Gallery</a>
+      <a href="#contact-info">Contact</a>
+      <a href="product.html">Product</a>
       <a href="about.html">Our story</a>
     </nav>
 
-    <!-- Dropdown for small screens -->
     <div class="nav-select">
       <label class="sr-only" for="site-nav-select">Menu</label>
       <select id="site-nav-select">
         <option value="">Menu</option>
-        <option value="index.html#hero">Home</option>
-        <option value="index.html#showcase">Imagine</option>
-        <option value="index.html#on-glass">Gallery</option>
-        <option value="index.html#contact-info">Contact</option>
-        <option value="product.html" selected>Product</option>
+        <option value="#hero">Home</option>
+        <option value="#showcase">Imagine</option>
+        <option value="#on-glass">Gallery</option>
+        <option value="#contact-info">Contact</option>
+        <option value="product.html">Product</option>
         <option value="about.html">Our story</option>
       </select>
     </div>
   </header>
 
   <main>
-    <h2 class="section-title">Our Product</h2>
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <h1>Protect what matters</h1>
+        <p>Help prevent drink spiking with eco-safe PromoShields.</p>
+        <a href="#showcase" class="cta-button">Discover possibilities</a>
 
-    <div class="section">
-      <p>PromoShields are eco-friendly, single-use drink covers designed to protect people from drink spiking — while giving businesses a powerful new way to advertise.</p>
-      <p>Each cover is made from recyclable material and fits over most glasses and cups. Customers simply peel it off the stack, press it over their drink, and enjoy peace of mind.</p>
+        <section id="counter" aria-live="polite">
+          <h2>Drinks protected across Aotearoa</h2>
+          <div class="counter" id="counter-value">2,500</div>
+        </section>
+      </div>
+    </section>
 
-      <div class="images">
-        <!-- Replace these with real images -->
-        <img src="images/cover-on-glass-1.jpg" alt="PromoShield on drink" />
-        <img src="images/cover-on-glass-2.jpg" alt="PromoShield example" />
-      </div>
-    </div>
+    <section id="showcase">
+      <h2>Endless advertising possibilities</h2>
+      <p>
+        PromoShields are not only for protection, they are also your canvas. Match your brand or event, add logos, and link QR codes to menus or offers.
+      </p>
+    </section>
 
-    <h2 class="section-title">How It Works</h2>
+    <section id="on-glass">
+      <div class="on-glass-wrapper">
+        <h2 class="section-title">Real covers on real glasses</h2>
+        <p class="section-subtext">
+          See PromoShields in action, sleek and secure, ready for any night out.
+        </p>
+        <div class="glass-image-grid">
+          <img
+            src="https://raw.githubusercontent.com/FletcherLochhead/promoshields-site/main/thumbnail_Subject.png"
+            alt="PromoShields cover on a cocktail glass"
+            width="560" height="560"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </section>
 
-    <div class="how-it-works">
-      <div>
-        <h3>✅ Bars Get It Free</h3>
-        <p>PromoShields are supplied at no cost to hospitality venues. Simply display the dispenser and give customers access to protection — no setup, no hassle.</p>
-      </div>
-      <div>
-        <h3>📢 Businesses Advertise</h3>
-        <p>Each PromoShield is custom-branded with a business's message. It’s direct, physical marketing — right in the hands of your target audience.</p>
-      </div>
-      <div>
-        <h3>🛡️ Customers Get Protected</h3>
-        <p>Patrons get peace of mind knowing their drink is safer from tampering. A simple, effective way to enjoy nights out with less worry.</p>
-      </div>
-    </div>
+    <!-- Contact Us (light blue background) -->
+    <section id="contact-info" style="background: var(--brand); color: #fff; text-align: center; padding: 2.5rem 1rem;">
+      <h3 style="font-family:'Orbitron',sans-serif; font-size: 2rem; margin-bottom: 1rem;">Contact us</h3>
+      <p style="font-size:1.1rem; margin:0.4rem 0;">📞 Phone: <a href="tel:+6421959152" style="color:#fff; text-decoration:underline;">021 959 152</a></p>
+      <p style="font-size:1.1rem; margin:0.4rem 0;">📧 Email: <a href="mailto:promoshields@gmail.com" style="color:#fff; text-decoration:underline;">promoshields@gmail.com</a></p>
+    </section>
+
+    <!-- Why Drink Covers Matter -->
+    <section id="why-covers" style="background: var(--bg-2); color: var(--text); text-align: center; padding: 4rem 1.5rem;">
+      <h2 class="section-title">Why Drink Covers Matter</h2>
+      <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.7; color: var(--text-muted);">
+        Drink spiking is a serious issue in New Zealand and worldwide. Research shows that <strong>1 in 4 women and 1 in 12 men</strong> in Aotearoa have either experienced or witnessed drink spiking. 
+        Many cases go unreported, and the impact on victims can be devastating — from immediate health risks to long-term trauma.  
+      </p>
+      <p style="max-width: 800px; margin: 1.5rem auto 0; font-size: 1.1rem; line-height: 1.7; color: var(--text-muted);">
+        PromoShields provide a <strong>simple, effective layer of protection</strong> for nightlife, festivals, and community events. 
+        By normalising drink covers, we can reduce risk, raise awareness, and help people enjoy themselves with peace of mind.
+      </p>
+    </section>
+
+    <!-- Quick Info -->
+    <section id="quick-info" style="background: #fffbb7; color: #2d2d2d; text-align: center; padding: 2rem 1rem;">
+      <h3 style="font-family:'Orbitron',sans-serif; font-size: 1.6rem; margin-bottom: .75rem;">Quick Info</h3>
+      <p style="font-size: 1rem; margin: .25rem 0;">📍 Based in Christchurch, New Zealand</p>
+      <p style="font-size: 1rem; margin: .25rem 0;">🌱 Proudly focused on innovation, safety, and sustainability</p>
+    </section>
   </main>
 
   <footer>
@@ -237,25 +310,34 @@
   </footer>
 
   <script>
-    // Dropdown navigation for phones
+    // Dropdown navigation for small phones
     const navSelect = document.getElementById('site-nav-select');
     if (navSelect) {
       navSelect.addEventListener('change', (e) => {
         const v = e.target.value;
         if (!v) return;
-        window.location.href = v;
+        if (v.startsWith('#')) {
+          const el = document.querySelector(v);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          window.location.href = v;
+        }
+        e.target.selectedIndex = 0;
       });
     }
 
-    // Auto-highlight active link
-    const current = window.location.pathname.split('/').pop();
-    document.querySelectorAll('nav.links a').forEach(a => {
-      const href = a.getAttribute('href');
-      if (href.endsWith(current)) {
-        a.classList.add('active');
-        a.setAttribute('aria-current', 'page');
-      }
-    });
+    // Counter
+    const counterEl = document.getElementById('counter-value');
+    let value = 2500;
+    let ticks = 0;
+    function step() {
+      if (document.hidden) return;
+      if (ticks >= 200) return;
+      value += 1;
+      counterEl.textContent = value.toLocaleString();
+      ticks += 1;
+    }
+    setInterval(step, 3000);
   </script>
 </body>
 </html>
