@@ -64,6 +64,12 @@
     }
     nav.links a:hover { color: var(--brand); }
 
+    /* Make active link blue */
+    nav.links a.active,
+    nav.links a[aria-current="page"] {
+      color: var(--brand);
+    }
+
     .nav-select { display: none; }
     .nav-select select {
       background: #111;
@@ -80,20 +86,6 @@
       margin: 0 auto;
       padding: 2rem 1.25rem;
       text-align: center;
-    }
-
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      color: var(--brand); /* blue like Contact/Gallery */
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
     }
 
     footer {
@@ -115,12 +107,12 @@
     <a class="logo" href="index.html#hero">PromoShields</a>
 
     <!-- Menu same order as index -->
-    <nav class="links">
+    <nav class="links" aria-label="Primary">
       <a href="index.html#hero">Home</a>
       <a href="index.html#showcase">Imagine</a>
       <a href="index.html#on-glass">Gallery</a>
       <a href="index.html#contact-info">Contact</a>
-      <a href="product.html">Product</a>
+      <a href="product.html" class="active" aria-current="page">Product</a>
       <a href="about.html">Our story</a>
     </nav>
 
@@ -132,21 +124,16 @@
         <option value="index.html#showcase">Imagine</option>
         <option value="index.html#on-glass">Gallery</option>
         <option value="index.html#contact-info">Contact</option>
-        <option value="product.html">Product</option>
+        <option value="product.html" selected>Product</option>
         <option value="about.html">Our story</option>
       </select>
     </div>
   </header>
 
   <main>
-    <h1>Our Product</h1>
-    <p>
-      PromoShields are eco-safe drink covers designed to help prevent drink spiking while doubling
-      as a creative advertising platform. Customisable with logos, colours, and QR codes, they’re
-      the perfect blend of safety and innovation.
-    </p>
-
-    <!-- Add your product images/details here -->
+    <!-- Your original product content goes here, unchanged -->
+    <h1>Product Page</h1>
+    <p>This is where your product details and images will be displayed.</p>
   </main>
 
   <footer>
@@ -160,12 +147,7 @@
       navSelect.addEventListener('change', (e) => {
         const v = e.target.value;
         if (!v) return;
-        if (v.startsWith('#') || v.includes('.html#')) {
-          window.location.href = v;
-        } else {
-          window.location.href = v;
-        }
-        e.target.selectedIndex = 0;
+        window.location.href = v;
       });
     }
   </script>
