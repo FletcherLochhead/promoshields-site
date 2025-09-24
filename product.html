@@ -21,6 +21,8 @@
 
     header {
       position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 72px;
       width: 100%;
       padding: 1rem 2rem;
       z-index: 1000;
@@ -31,23 +33,45 @@
       backdrop-filter: blur(10px);
     }
 
-    header h1 {
+    .logo {
       font-family: 'Orbitron', sans-serif;
-      color: white;
-    }
-
-    nav a {
+      font-weight: 800;
+      font-size: clamp(1.6rem, 3.2vw, 2.1rem);
       color: white;
       text-decoration: none;
-      margin-left: 1.5rem;
+    }
+
+    nav.links {
+      display: flex;
+      gap: 1.5rem;
+      white-space: nowrap;
+    }
+
+    nav.links a {
+      color: white;
+      text-decoration: none;
       font-weight: 600;
     }
 
+    nav.links a:hover { color: #00bfff; }
+
     /* Highlight active link blue */
-    nav a.active,
-    nav a[aria-current="page"] {
+    nav.links a.active,
+    nav.links a[aria-current="page"] {
       color: #00bfff;
     }
+
+    /* Dropdown for phones */
+    .nav-select { display: none; }
+    .nav-select select {
+      background: #111;
+      color: #fff;
+      border: 1px solid #333;
+      padding: .4rem .6rem;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .sr-only { position: absolute; width:1px; height:1px; overflow:hidden; }
 
     main {
       padding-top: 100px;
@@ -119,14 +143,21 @@
       color: #888;
       font-size: 0.9rem;
     }
+
+    @media (max-width: 520px) {
+      nav.links { display: none; }
+      .nav-select { display: block; }
+    }
   </style>
 </head>
 
 <body>
 
   <header>
-    <h1>PromoShields</h1>
-    <nav>
+    <a class="logo" href="index.html#hero">PromoShields</a>
+
+    <!-- Menu same order as index -->
+    <nav class="links" aria-label="Primary">
       <a href="index.html#hero">Home</a>
       <a href="index.html#showcase">Imagine</a>
       <a href="index.html#on-glass">Gallery</a>
@@ -134,6 +165,20 @@
       <a href="product.html" class="active" aria-current="page">Product</a>
       <a href="about.html">Our story</a>
     </nav>
+
+    <!-- Dropdown for small screens -->
+    <div class="nav-select">
+      <label class="sr-only" for="site-nav-select">Menu</label>
+      <select id="site-nav-select">
+        <option value="">Menu</option>
+        <option value="index.html#hero">Home</option>
+        <option value="index.html#showcase">Imagine</option>
+        <option value="index.html#on-glass">Gallery</option>
+        <option value="index.html#contact-info">Contact</option>
+        <option value="product.html" selected>Product</option>
+        <option value="about.html">Our story</option>
+      </select>
+    </div>
   </header>
 
   <main>
@@ -172,5 +217,16 @@
     &copy; 2025 PromoShields Ltd. All rights reserved.
   </footer>
 
+  <script>
+    // Dropdown navigation for phones
+    const navSelect = document.getElementById('site-nav-select');
+    if (navSelect) {
+      navSelect.addEventListener('change', (e) => {
+        const v = e.target.value;
+        if (!v) return;
+        window.location.href = v;
+      });
+    }
+  </script>
 </body>
 </html>
