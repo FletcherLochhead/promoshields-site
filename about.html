@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn more about PromoShields Ltd. Discover our story, mission, and the team behind the drink safety innovation." />
-  <meta property="og:title" content="About PromoShields Ltd" />
-  <meta property="og:image" content="favicon.png" />
-  <meta property="og:description" content="Founded by Fletcher Lochhead and George Watson, PromoShields aims to make nightlife safer while offering a new way to advertise ethically." />
-  <meta name="theme-color" content="#00bfff" />
-  <title>About Us | PromoShields Ltd</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <title>Our Product | PromoShields</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * {
@@ -19,8 +12,7 @@
       box-sizing: border-box;
     }
 
-    html,
-    body {
+    html, body {
       font-family: 'Poppins', sans-serif;
       color: white;
       background-color: #000;
@@ -29,9 +21,8 @@
 
     header {
       position: fixed;
-      top: 0; /* ensure header is flush at the top */
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
+      height: 72px;
       width: 100%;
       padding: 1rem 2rem;
       z-index: 1000;
@@ -42,65 +33,107 @@
       backdrop-filter: blur(10px);
     }
 
-    header h1 {
+    .logo {
       font-family: 'Orbitron', sans-serif;
-      color: white;
-    }
-
-    nav a {
+      font-weight: 800;
+      font-size: clamp(1.6rem, 3.2vw, 2.1rem);
       color: white;
       text-decoration: none;
-      margin-left: 1.5rem;
+    }
+
+    nav.links {
+      display: flex;
+      gap: 1.5rem;
+      white-space: nowrap;
+    }
+
+    nav.links a {
+      color: white;
+      text-decoration: none;
       font-weight: 600;
     }
 
-    .section {
-      padding: 6rem 2rem 4rem;
+    nav.links a:hover { color: #00bfff; }
+
+    /* Highlight active link blue */
+    nav.links a.active,
+    nav.links a[aria-current="page"] {
+      color: #00bfff;
+    }
+
+    /* Dropdown for phones */
+    .nav-select { display: none; }
+    .nav-select select {
+      background: #111;
+      color: #fff;
+      border: 1px solid #333;
+      padding: .4rem .6rem;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .sr-only { position: absolute; width:1px; height:1px; overflow:hidden; }
+
+    main {
+      padding-top: 100px;
       max-width: 1000px;
       margin: auto;
+      padding: 5rem 2rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: #00bfff;
+      margin-bottom: 1.5rem;
       text-align: center;
     }
 
-    .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: #00bfff;
-      font-family: 'Orbitron', sans-serif;
+    .section {
+      margin-bottom: 3rem;
     }
 
-    .content p {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      text-align: left;
+    .section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
     }
 
-    .founders {
+    .images {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 3rem;
+      flex-wrap: wrap;
       gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
     }
 
-    .founder-card {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      text-align: left;
-    }
-
-    .founder-card img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
+    .images img {
+      width: 300px;
+      border-radius: 16px;
       border: 2px solid #00bfff;
     }
 
-    .founder-card p {
-      margin: 0;
-      font-size: 1.2rem;
+    .how-it-works {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .how-it-works div {
+      background-color: #111;
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid #333;
+      transition: transform 0.3s;
+    }
+
+    .how-it-works div:hover {
+      transform: translateY(-5px);
+    }
+
+    .how-it-works h3 {
+      color: #00bfff;
+      margin-bottom: 1rem;
     }
 
     footer {
@@ -111,11 +144,9 @@
       font-size: 0.9rem;
     }
 
-    @media (max-width: 600px) {
-      .founder-card {
-        flex-direction: column;
-        text-align: center;
-      }
+    @media (max-width: 520px) {
+      nav.links { display: none; }
+      .nav-select { display: block; }
     }
   </style>
 </head>
@@ -123,46 +154,79 @@
 <body>
 
   <header>
-    <h1>PromoShields</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="product.html">Product</a>
-      <a href="counter.html">Counter</a>
-      <a href="contact.html">Contact</a>
+    <a class="logo" href="index.html#hero">PromoShields</a>
+
+    <!-- Menu same order as index -->
+    <nav class="links" aria-label="Primary">
+      <a href="index.html#hero">Home</a>
+      <a href="index.html#showcase">Imagine</a>
+      <a href="index.html#on-glass">Gallery</a>
+      <a href="index.html#contact-info">Contact</a>
+      <a href="product.html" class="active" aria-current="page">Product</a>
+      <a href="about.html">Our story</a>
     </nav>
+
+    <!-- Dropdown for small screens -->
+    <div class="nav-select">
+      <label class="sr-only" for="site-nav-select">Menu</label>
+      <select id="site-nav-select">
+        <option value="">Menu</option>
+        <option value="index.html#hero">Home</option>
+        <option value="index.html#showcase">Imagine</option>
+        <option value="index.html#on-glass">Gallery</option>
+        <option value="index.html#contact-info">Contact</option>
+        <option value="product.html" selected>Product</option>
+        <option value="about.html">Our story</option>
+      </select>
+    </div>
   </header>
 
-  <section class="section" id="about" style="padding-top: 8rem;">
-    <h2 class="section-title">Our Story</h2>
-    <div class="content">
-      <p>PromoShields Ltd was founded by <strong>Fletcher Lochhead</strong> and <strong>George Watson</strong> — two young innovators with a bold mission: to create a safer nightlife culture by protecting drinks from spiking while simultaneously giving brands a positive way to advertise.</p>
+  <main>
+    <h2>Our Product</h2>
 
-      <p>The idea for PromoShields started in 2023, when Fletcher began working on early-stage prototypes as part of the <strong>Young Enterprise Scheme</strong>. With a drive to tackle the widespread problem of drink spiking, he explored countless materials and methods to make drink safety simple, fast, and effective. Later, George joined the mission, bringing critical insight, creativity, and energy into turning the concept into a fully-fledged business.</p>
+    <div class="section">
+      <p>PromoShields are eco-friendly, single-use drink covers designed to protect people from drink spiking — while giving businesses a powerful new way to advertise.</p>
+      <p>Each cover is made from recyclable material and fits over most glasses and cups. Customers simply peel it off the stack, press it over their drink, and enjoy peace of mind.</p>
 
-      <p>Fast forward to today, PromoShields is distributing drink covers to bars and venues across New Zealand. We’ve worked closely with <strong>local communities, events, schools, and hospitality venues</strong> to make our mission a reality. We also participated in <strong>Momentum</strong> — a business mentorship and development programme — to refine our strategy and scale our impact.</p>
-
-      <p>Our model is simple and powerful. <strong>Businesses sponsor the shields with branded messages and logos</strong>, giving them a chance to make a meaningful social impact while gaining brand visibility. In return, <strong>bars receive the covers for free</strong>, and their <strong>customers get protected</strong>. It’s a win-win-win for safety, business, and the public.</p>
-
-      <p>Our vision is to see PromoShields in every bar, festival, and social event where drink safety matters. We believe in combining <strong>innovation, entrepreneurship, and social responsibility</strong> — and we’re just getting started.</p>
-
-      <div class="founders">
-        <div class="founder-card">
-          <img src="https://media.licdn.com/dms/image/v2/D5603AQG3IrMonMEJ9g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1721725183438?e=1753920000&v=beta&t=Xoi0a8BfF3pTlse1S7cT-FiI9QghPLIGQm3ZdLnTu0w" alt="Fletcher Lochhead" />
-          <p><strong>Fletcher Lochhead</strong><br />Co-Founder</p>
-        </div>
-        <div class="founder-card">
-          <img src="https://media.licdn.com/dms/image/v2/D4D03AQGI-EptwoRwrg/profile-displayphoto-shrink_400_400/B4DZbySrmIHsAg-/0/1747821706082?e=1753920000&v=beta&t=t5ChrZqs1R9jYXazr2C9t1J3lBmUEEelNbqBnBRMWK8" alt="George Watson" />
-          <p><strong>George Watson</strong><br />Co-Founder</p>
-        </div>
+      <div class="images">
+        <!-- Replace these with real images -->
+        <img src="images/cover-on-glass-1.jpg" alt="PromoShield on drink" />
+        <img src="images/cover-on-glass-2.jpg" alt="PromoShield example" />
       </div>
     </div>
-  </section>
+
+    <h2>How It Works</h2>
+
+    <div class="how-it-works">
+      <div>
+        <h3>✅ Bars Get It Free</h3>
+        <p>PromoShields are supplied at no cost to hospitality venues. Simply display the dispenser and give customers access to protection — no setup, no hassle.</p>
+      </div>
+      <div>
+        <h3>📢 Businesses Advertise</h3>
+        <p>Each PromoShield is custom-branded with a business's message. It’s direct, physical marketing — right in the hands of your target audience.</p>
+      </div>
+      <div>
+        <h3>🛡️ Customers Get Protected</h3>
+        <p>Patrons get peace of mind knowing their drink is safer from tampering. A simple, effective way to enjoy nights out with less worry.</p>
+      </div>
+    </div>
+  </main>
 
   <footer>
     &copy; 2025 PromoShields Ltd. All rights reserved.
   </footer>
 
+  <script>
+    // Dropdown navigation for phones
+    const navSelect = document.getElementById('site-nav-select');
+    if (navSelect) {
+      navSelect.addEventListener('change', (e) => {
+        const v = e.target.value;
+        if (!v) return;
+        window.location.href = v;
+      });
+    }
+  </script>
 </body>
-
 </html>
