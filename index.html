@@ -33,7 +33,6 @@
 
     body { padding-top: var(--header-h); }
 
-    /* Header */
     header {
       position: fixed;
       inset: 0 0 auto 0;
@@ -59,13 +58,11 @@
       align-items: center;
     }
 
-    /* Top-right links stay on one line */
     nav.links {
       display: flex;
       align-items: center;
       gap: clamp(.6rem, 1.6vw, 1.25rem);
-      white-space: nowrap;          /* keep a single line */
-      overflow: hidden;             /* avoid wrapping artifacts */
+      white-space: nowrap;
     }
     nav.links a {
       color: var(--text);
@@ -76,7 +73,6 @@
     }
     nav.links a:hover { color: var(--brand); }
 
-    /* Dropdown shown only on small phones */
     .nav-select { display: none; }
     .nav-select select {
       background: #111;
@@ -96,10 +92,8 @@
       border: 0;
     }
 
-    /* Sections anchor offset */
     section { scroll-margin-top: calc(var(--header-h) + 12px); }
 
-    /* Hero */
     .hero {
       min-height: calc(100vh - var(--header-h));
       display: grid;
@@ -144,21 +138,10 @@
     .cta-button:hover { box-shadow: 0 0 20px 5px rgba(0,191,255,.7); }
     .cta-button:active { transform: translateY(1px); }
 
-    /* Centred hero product image */
-    .hero-visual { margin-top: .5rem; display: grid; place-items: center; }
-    .hero-visual img {
-      width: min(520px, 85vw);
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 28px rgba(0,191,255,.35);
-    }
-
-    /* Counter */
     #counter { margin-top: .25rem; }
     #counter h2 { font-size: 1.05rem; }
     .counter { font-size: clamp(2rem, 5.5vw, 3rem); font-weight: 800; }
 
-    /* Showcase */
     #showcase {
       background: var(--bg-2);
       padding: 5rem 1.25rem;
@@ -178,7 +161,6 @@
       font-size: 1.05rem;
     }
 
-    /* Gallery */
     #on-glass { background: var(--bg); padding: 5rem 1.25rem; text-align: center; }
     .on-glass-wrapper { max-width: 1200px; margin: 0 auto; }
     #on-glass .section-title {
@@ -215,7 +197,6 @@
       box-shadow: 0 0 35px rgba(0,191,255,.6);
     }
 
-    /* Contact */
     #contact-info {
       background: #fffbb7;
       color: #2d2d2d;
@@ -232,7 +213,6 @@
       font-size: .95rem;
     }
 
-    /* Breakpoint: switch to dropdown on small phones */
     @media (max-width: 520px) {
       nav.links { display: none; }
       .nav-select { display: block; }
@@ -241,10 +221,8 @@
 </head>
 <body>
   <header>
-    <!-- Bigger brand at top left -->
     <a class="logo" href="#hero" aria-label="PromoShields home">PromoShields</a>
 
-    <!-- Always one-line links by default -->
     <nav class="links" aria-label="Primary">
       <a href="#hero">Home</a>
       <a href="#showcase">Imagine</a>
@@ -254,8 +232,7 @@
       <a href="about.html">Our story</a>
     </nav>
 
-    <!-- Small-phone dropdown version -->
-    <div class="nav-select" aria-label="Primary menu small screens">
+    <div class="nav-select">
       <label class="sr-only" for="site-nav-select">Menu</label>
       <select id="site-nav-select">
         <option value="">Menu</option>
@@ -280,17 +257,6 @@
           <h2>Drinks protected across Aotearoa</h2>
           <div class="counter" id="counter-value">2,500</div>
         </section>
-
-        <!-- Centred product image -->
-        <div class="hero-visual">
-          <img
-            src="https://raw.githubusercontent.com/FletcherLochhead/promoshields-site/main/thumbnail_Subject.png"
-            alt="PromoShields cover fitted snugly on a glass"
-            width="560" height="560"
-            loading="eager"
-            decoding="async"
-          />
-        </div>
       </div>
     </section>
 
@@ -331,7 +297,7 @@
   </footer>
 
   <script>
-    // Small phone dropdown navigation
+    // Dropdown navigation for small phones
     const navSelect = document.getElementById('site-nav-select');
     if (navSelect) {
       navSelect.addEventListener('change', (e) => {
@@ -343,12 +309,11 @@
         } else {
           window.location.href = v;
         }
-        // reset select back to label
         e.target.selectedIndex = 0;
       });
     }
 
-    // Simple counter with a soft cap
+    // Counter
     const counterEl = document.getElementById('counter-value');
     let value = 2500;
     let ticks = 0;
