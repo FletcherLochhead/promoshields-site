@@ -2,10 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Our Product | PromoShields</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --brand: #00bfff;
+      --bg: #000;
+      --bg-2: #111;
+      --text: #fff;
+      --text-muted: #bbb;
+      --header-h: 72px;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -14,22 +23,24 @@
 
     html, body {
       font-family: 'Poppins', sans-serif;
-      color: white;
-      background-color: #000;
+      color: var(--text);
+      background-color: var(--bg);
       scroll-behavior: smooth;
     }
+
+    body { padding-top: var(--header-h); }
 
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
-      height: 72px;
+      height: var(--header-h);
       width: 100%;
-      padding: 1rem 2rem;
+      padding: 0 .75rem 0 1rem;
       z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(10px);
     }
 
@@ -37,28 +48,29 @@
       font-family: 'Orbitron', sans-serif;
       font-weight: 800;
       font-size: clamp(1.6rem, 3.2vw, 2.1rem);
-      color: white;
+      color: var(--text);
       text-decoration: none;
     }
 
     nav.links {
       display: flex;
-      gap: 1.5rem;
+      gap: clamp(.6rem, 1.6vw, 1.25rem);
       white-space: nowrap;
     }
 
     nav.links a {
-      color: white;
+      color: var(--text);
       text-decoration: none;
       font-weight: 600;
+      font-size: clamp(.9rem, 1.2vw, 1rem);
     }
 
-    nav.links a:hover { color: #00bfff; }
+    nav.links a:hover { color: var(--brand); }
 
     /* Highlight active link blue */
     nav.links a.active,
     nav.links a[aria-current="page"] {
-      color: #00bfff;
+      color: var(--brand);
     }
 
     /* Dropdown for phones */
@@ -71,19 +83,26 @@
       border-radius: 8px;
       font-size: 1rem;
     }
-    .sr-only { position: absolute; width:1px; height:1px; overflow:hidden; }
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+    }
 
     main {
-      padding-top: 100px;
       max-width: 1000px;
       margin: auto;
       padding: 5rem 2rem;
     }
 
-    h2 {
+    /* Shared heading style */
+    .section-title {
       font-size: 2.5rem;
-      color: #00bfff;
       margin-bottom: 1.5rem;
+      color: var(--brand);
+      font-family: 'Orbitron', sans-serif;
       text-align: center;
     }
 
@@ -108,7 +127,7 @@
     .images img {
       width: 300px;
       border-radius: 16px;
-      border: 2px solid #00bfff;
+      border: 2px solid var(--brand);
     }
 
     .how-it-works {
@@ -132,14 +151,14 @@
     }
 
     .how-it-works h3 {
-      color: #00bfff;
+      color: var(--brand);
       margin-bottom: 1rem;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      background-color: #111;
+      background-color: var(--bg-2);
       color: #888;
       font-size: 0.9rem;
     }
@@ -156,13 +175,13 @@
   <header>
     <a class="logo" href="index.html#hero">PromoShields</a>
 
-    <!-- Menu same order as index -->
+    <!-- Menu matches index -->
     <nav class="links" aria-label="Primary">
       <a href="index.html#hero">Home</a>
       <a href="index.html#showcase">Imagine</a>
       <a href="index.html#on-glass">Gallery</a>
       <a href="index.html#contact-info">Contact</a>
-      <a href="product.html">Product</a>
+      <a href="product.html" class="active" aria-current="page">Product</a>
       <a href="about.html">Our story</a>
     </nav>
 
@@ -175,14 +194,14 @@
         <option value="index.html#showcase">Imagine</option>
         <option value="index.html#on-glass">Gallery</option>
         <option value="index.html#contact-info">Contact</option>
-        <option value="product.html">Product</option>
+        <option value="product.html" selected>Product</option>
         <option value="about.html">Our story</option>
       </select>
     </div>
   </header>
 
   <main>
-    <h2>Our Product</h2>
+    <h2 class="section-title">Our Product</h2>
 
     <div class="section">
       <p>PromoShields are eco-friendly, single-use drink covers designed to protect people from drink spiking — while giving businesses a powerful new way to advertise.</p>
@@ -195,7 +214,7 @@
       </div>
     </div>
 
-    <h2>How It Works</h2>
+    <h2 class="section-title">How It Works</h2>
 
     <div class="how-it-works">
       <div>
@@ -218,33 +237,25 @@
   </footer>
 
   <script>
-    // Highlight active link automatically based on current URL
-    const links = document.querySelectorAll('nav.links a');
-    const current = window.location.pathname.split('/').pop();
-    links.forEach(link => {
-      if (link.getAttribute('href').includes(current) && current !== '') {
-        link.classList.add('active');
-        link.setAttribute('aria-current','page');
-      }
-    });
-
     // Dropdown navigation for phones
     const navSelect = document.getElementById('site-nav-select');
     if (navSelect) {
-      // Preselect current page
-      for (let i = 0; i < navSelect.options.length; i++) {
-        if (navSelect.options[i].value.includes(current)) {
-          navSelect.selectedIndex = i;
-          break;
-        }
-      }
-
       navSelect.addEventListener('change', (e) => {
         const v = e.target.value;
         if (!v) return;
         window.location.href = v;
       });
     }
+
+    // Auto-highlight active link
+    const current = window.location.pathname.split('/').pop();
+    document.querySelectorAll('nav.links a').forEach(a => {
+      const href = a.getAttribute('href');
+      if (href.endsWith(current)) {
+        a.classList.add('active');
+        a.setAttribute('aria-current', 'page');
+      }
+    });
   </script>
 </body>
 </html>
