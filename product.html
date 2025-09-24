@@ -162,7 +162,7 @@
       <a href="index.html#showcase">Imagine</a>
       <a href="index.html#on-glass">Gallery</a>
       <a href="index.html#contact-info">Contact</a>
-      <a href="product.html" class="active" aria-current="page">Product</a>
+      <a href="product.html">Product</a>
       <a href="about.html">Our story</a>
     </nav>
 
@@ -175,7 +175,7 @@
         <option value="index.html#showcase">Imagine</option>
         <option value="index.html#on-glass">Gallery</option>
         <option value="index.html#contact-info">Contact</option>
-        <option value="product.html" selected>Product</option>
+        <option value="product.html">Product</option>
         <option value="about.html">Our story</option>
       </select>
     </div>
@@ -218,9 +218,27 @@
   </footer>
 
   <script>
+    // Highlight active link automatically based on current URL
+    const links = document.querySelectorAll('nav.links a');
+    const current = window.location.pathname.split('/').pop();
+    links.forEach(link => {
+      if (link.getAttribute('href').includes(current) && current !== '') {
+        link.classList.add('active');
+        link.setAttribute('aria-current','page');
+      }
+    });
+
     // Dropdown navigation for phones
     const navSelect = document.getElementById('site-nav-select');
     if (navSelect) {
+      // Preselect current page
+      for (let i = 0; i < navSelect.options.length; i++) {
+        if (navSelect.options[i].value.includes(current)) {
+          navSelect.selectedIndex = i;
+          break;
+        }
+      }
+
       navSelect.addEventListener('change', (e) => {
         const v = e.target.value;
         if (!v) return;
