@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Learn more about PromoShields Ltd. Discover our story, mission, and the team behind the drink safety innovation." />
   <meta property="og:title" content="About PromoShields Ltd" />
   <meta property="og:image" content="favicon.png" />
@@ -11,140 +10,186 @@
   <meta name="theme-color" content="#00bfff" />
   <title>About Us | PromoShields Ltd</title>
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root{
+      --brand:#00bfff;
+      --bg:#000;
+      --bg-2:#111;
+      --text:#fff;
+      --text-muted:#bbb;
+      --header-h:72px;
     }
 
-    html,
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: white;
-      background-color: #000;
-      scroll-behavior: smooth;
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    html, body{
+      font-family:'Poppins',sans-serif;
+      color:var(--text);
+      background-color:var(--bg);
+      scroll-behavior:smooth;
+      height:100%;
     }
 
-    header {
-      position: fixed;
-      top: 0; /* ensure header is flush at the top */
-      left: 0;
-      right: 0;
-      width: 100%;
-      padding: 1rem 2rem;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px);
+    body{padding-top:var(--header-h);}
+
+    /* Site header: match index.html */
+    header{
+      position:fixed;
+      inset:0 0 auto 0;
+      height:var(--header-h);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 .75rem 0 1rem;
+      z-index:1000;
+      background:rgba(0,0,0,.7);
+      backdrop-filter:blur(10px);
     }
 
-    header h1 {
-      font-family: 'Orbitron', sans-serif;
-      color: white;
+    .logo{
+      text-decoration:none;
+      color:var(--text);
+      font-family:'Orbitron',sans-serif;
+      font-weight:800;
+      letter-spacing:.5px;
+      font-size:clamp(1.6rem,3.2vw,2.1rem);
+      line-height:1;
+      display:inline-flex;
+      align-items:center;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: 600;
+    nav.links{
+      display:flex;
+      align-items:center;
+      gap:clamp(.6rem,1.6vw,1.25rem);
+      white-space:nowrap;
+    }
+    nav.links a{
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
+      font-size:clamp(.9rem,1.2vw,1rem);
+      opacity:.95;
+      transition:color .15s ease;
+    }
+    nav.links a:hover{color:var(--brand);}
+    nav.links a.active,
+    nav.links a[aria-current="page"]{color:var(--brand);}
+
+    .nav-select{display:none;}
+    .nav-select select{
+      background:#111;color:#fff;border:1px solid #333;
+      padding:.4rem .6rem;border-radius:8px;font-size:1rem;
+    }
+    .sr-only{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
     }
 
-    .section {
-      padding: 6rem 2rem 4rem;
-      max-width: 1000px;
-      margin: auto;
-      text-align: center;
+    /* Page content */
+    .section{
+      padding:6rem 2rem 4rem;
+      max-width:1000px;
+      margin:auto;
+      text-align:center;
+      scroll-margin-top:calc(var(--header-h) + 12px);
     }
 
-    .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: #00bfff;
-      font-family: 'Orbitron', sans-serif;
+    /* Title style to match your blue section headings */
+    .section-title{
+      font-size:2.5rem;
+      margin-bottom:2rem;
+      color:var(--brand);
+      font-family:'Orbitron',sans-serif;
     }
 
-    .content p {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      text-align: left;
+    .content p{
+      font-size:1.2rem;
+      line-height:1.8;
+      margin-bottom:1.5rem;
+      text-align:left;
+      color:#ddd;
     }
 
-    .founders {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 3rem;
-      gap: 2rem;
+    .founders{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      margin-top:3rem;
+      gap:2rem;
+    }
+    .founder-card{
+      display:flex;
+      align-items:center;
+      gap:1.5rem;
+      text-align:left;
+    }
+    .founder-card img{
+      width:180px;height:180px;border-radius:50%;
+      object-fit:cover;border:2px solid var(--brand);
+    }
+    .founder-card p{margin:0;font-size:1.2rem;}
+
+    footer{
+      text-align:center;
+      padding:2rem;
+      background-color:var(--bg-2);
+      color:#888;
+      font-size:.9rem;
     }
 
-    .founder-card {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      text-align: left;
+    @media (max-width:600px){
+      .founder-card{flex-direction:column;text-align:center;}
     }
-
-    .founder-card img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #00bfff;
-    }
-
-    .founder-card p {
-      margin: 0;
-      font-size: 1.2rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #111;
-      color: #888;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 600px) {
-      .founder-card {
-        flex-direction: column;
-        text-align: center;
-      }
+    @media (max-width:520px){
+      nav.links{display:none;}
+      .nav-select{display:block;}
     }
   </style>
 </head>
-
 <body>
 
+  <!-- Header matches index: logo left, menu right, same spacing -->
   <header>
-    <h1>PromoShields</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
+    <a class="logo" href="index.html#hero" aria-label="PromoShields home">PromoShields</a>
+
+    <nav class="links" aria-label="Primary">
+      <a href="index.html#hero">Home</a>
+      <a href="index.html#showcase">Imagine</a>
+      <a href="index.html#on-glass">Gallery</a>
+      <a href="index.html#contact-info">Contact</a>
       <a href="product.html">Product</a>
-      <a href="counter.html">Counter</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html" class="active" aria-current="page">Our story</a>
     </nav>
+
+    <!-- Phone dropdown to match index/product -->
+    <div class="nav-select">
+      <label class="sr-only" for="site-nav-select">Menu</label>
+      <select id="site-nav-select">
+        <option value="">Menu</option>
+        <option value="index.html#hero">Home</option>
+        <option value="index.html#showcase">Imagine</option>
+        <option value="index.html#on-glass">Gallery</option>
+        <option value="index.html#contact-info">Contact</option>
+        <option value="product.html">Product</option>
+        <option value="about.html" selected>Our story</option>
+      </select>
+    </div>
   </header>
 
-  <section class="section" id="about" style="padding-top: 8rem;">
+  <section class="section" id="about">
     <h2 class="section-title">Our Story</h2>
     <div class="content">
-      <p>PromoShields Ltd was founded by <strong>Fletcher Lochhead</strong> and <strong>George Watson</strong> — two young innovators with a bold mission: to create a safer nightlife culture by protecting drinks from spiking while simultaneously giving brands a positive way to advertise.</p>
+      <p>PromoShields Ltd was founded by <strong>Fletcher Lochhead</strong> and <strong>George Watson</strong> to create a safer nightlife culture by protecting drinks from spiking while giving brands a positive way to advertise.</p>
 
-      <p>The idea for PromoShields started in 2023, when Fletcher began working on early-stage prototypes as part of the <strong>Young Enterprise Scheme</strong>. With a drive to tackle the widespread problem of drink spiking, he explored countless materials and methods to make drink safety simple, fast, and effective. Later, George joined the mission, bringing critical insight, creativity, and energy into turning the concept into a fully-fledged business.</p>
+      <p>The idea for PromoShields started in 2023, when Fletcher began working on early-stage prototypes as part of the <strong>Young Enterprise Scheme</strong>. With a focus on the widespread problem of drink spiking, he explored materials and methods to make drink safety simple, fast, and effective. Later, George joined the mission, bringing insight, creativity, and energy to turn the concept into a business.</p>
 
-      <p>Fast forward to today, PromoShields is distributing drink covers to bars and venues across New Zealand. We’ve worked closely with <strong>local communities, events, schools, and hospitality venues</strong> to make our mission a reality. We also participated in <strong>Momentum</strong> — a business mentorship and development programme — to refine our strategy and scale our impact.</p>
+      <p>Today, PromoShields is distributing drink covers to bars and venues across New Zealand. We work closely with <strong>local communities, events, schools, and hospitality venues</strong> to make our mission real. We also took part in <strong>Momentum</strong>, a mentorship and development programme, to refine our strategy and scale our impact.</p>
 
-      <p>Our model is simple and powerful. <strong>Businesses sponsor the shields with branded messages and logos</strong>, giving them a chance to make a meaningful social impact while gaining brand visibility. In return, <strong>bars receive the covers for free</strong>, and their <strong>customers get protected</strong>. It’s a win-win-win for safety, business, and the public.</p>
+      <p>Our model is simple and powerful. <strong>Businesses sponsor the shields with branded messages and logos</strong> to make a meaningful social impact while gaining brand visibility. In return, <strong>bars receive the covers for free</strong>, and their <strong>customers get protected</strong>. It is a win for safety, business, and the public.</p>
 
-      <p>Our vision is to see PromoShields in every bar, festival, and social event where drink safety matters. We believe in combining <strong>innovation, entrepreneurship, and social responsibility</strong> — and we’re just getting started.</p>
+      <p>Our vision is to see PromoShields in every bar, festival, and social event where drink safety matters. We believe in combining <strong>innovation, entrepreneurship, and social responsibility</strong>.</p>
 
       <div class="founders">
         <div class="founder-card">
@@ -163,6 +208,25 @@
     &copy; 2025 PromoShields Ltd. All rights reserved.
   </footer>
 
-</body>
+  <script>
+    // Phone dropdown navigation
+    const navSelect = document.getElementById('site-nav-select');
+    if (navSelect){
+      navSelect.addEventListener('change', (e)=>{
+        const v = e.target.value;
+        if (!v) return;
+        window.location.href = v;
+      });
+    }
 
+    // Auto-highlight active link based on URL
+    const current = window.location.pathname.split('/').pop() || 'about.html';
+    document.querySelectorAll('nav.links a').forEach(a=>{
+      const href = a.getAttribute('href');
+      const isActive = href.endsWith(current);
+      a.classList.toggle('active', isActive);
+      if (isActive) a.setAttribute('aria-current','page');
+    });
+  </script>
+</body>
 </html>
