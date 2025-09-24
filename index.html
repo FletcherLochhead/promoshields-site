@@ -1,413 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
-<span class="menu-toggle" onclick="toggleMenu()">☰</span>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="PromoShields Ltd | Protect What Matters. Prevent drink spiking with eco-safe drink covers. Safety meets innovation." />
-  <meta property="og:title" content="PromoShields Ltd - Protect What Matters" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="PromoShields Ltd | Protect what matters. Eco-safe drink covers that help prevent drink spiking and unlock branded experiences." />
+
+  <!-- Canonical and social sharing -->
+  <link rel="canonical" href="https://www.promoshields.co.nz/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PromoShields Ltd - Protect what matters" />
+  <meta property="og:description" content="Eco-friendly drink covers to help prevent drink spiking, plus advertising and QR code features." />
   <meta property="og:image" content="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-  <meta property="og:description" content="Eco-friendly drink covers that prevent drink spiking and offer advertising space. Futuristic safety meets nightlife innovation." />
+  <meta property="og:url" content="https://www.promoshields.co.nz/" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#00bfff" />
-  <title>PromoShields Ltd | Protect What Matters</title>
+
+  <title>PromoShields Ltd | Protect what matters</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
   <!-- AOS Animation Styles -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <style>
-    /* Mobile menu toggle */
-  .menu-toggle {
-    display: none;
-    font-size: 1.8rem;
-    color: white;
-    cursor: pointer;
-  }
-  
-  @media (max-width: 768px) {
-    nav {
-      position: absolute;
-      top: 60px;
-      right: 0;
-      background: rgba(0, 0, 0, 0.9);
-      flex-direction: column;
-      width: 100%;
-      display: none;
-      padding: 1rem 2rem;
-    }
-  
-    nav.active {
-      display: flex;
-    }
-  
-    nav a {
-      margin: 1rem 0;
-      font-size: 1.2rem;
-    }
-  
-    .menu-toggle {
-      display: block;
-    }
-  
-    header {
-      flex-wrap: wrap;
-    }
-  
-    .hero h2 {
-      font-size: 2.2rem;
-    }
-  
-    .hero p {
-      font-size: 1rem;
-    }
-  
-    .cta-button {
-      font-size: 0.95rem;
-      padding: 0.6rem 1.5rem;
-    }
-  
-    .glass-image-grid img {
-      width: 90%;
-    }
-  
-    .circle-grid img {
-      width: 120px;
-      height: 120px;
-    }
-  
-    .on-glass-wrapper {
-      padding: 1rem;
-    }
-  }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --brand: #00bfff;
+      --bg: #000;
+      --bg-2: #111;
+      --text: #fff;
+      --text-muted: #bbb;
+      --header-h: 64px;
     }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     html, body {
-      font-family: 'Poppins', sans-serif;
-      color: white;
-      background-color: #000;
-      scroll-behavior: smooth;
       height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      scroll-behaviour: smooth; /* harmless if misspelled in some browsers */
+    }
+
+    body {
+      padding-top: var(--header-h); /* prevent anchor content hiding under fixed header */
     }
 
     header {
       position: fixed;
-      width: 100%;
-      padding: 1rem 2rem;
-      z-index: 1000;
+      inset: 0 0 auto 0;
+      height: var(--header-h);
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      z-index: 1000;
       background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(10px);
     }
 
-    header h1 {
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      text-decoration: none;
+      color: var(--text);
       font-family: 'Orbitron', sans-serif;
-      color: white;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
     }
 
     nav a {
-      color: white;
+      color: var(--text);
       text-decoration: none;
-      margin-left: 1.5rem;
       font-weight: 600;
     }
 
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: var(--text);
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      line-height: 1;
+      padding: .25rem .5rem;
+    }
+
+    /* Sections share the same anchor offset */
+    section { scroll-margin-top: calc(var(--header-h) + 12px); }
+
     .hero {
+      min-height: calc(100vh - var(--header-h));
+      display: grid;
+      place-items: center;
+      text-align: centre;
+      padding: 2rem;
+      position: relative;
       background-image: url('https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
       background-size: cover;
-      background-position: center;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      padding: 2rem;
+      background-position: centre;
     }
 
     .hero::after {
-      content: '';
+      content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
+      inset: 0;
       background: rgba(0, 0, 0, 0.6);
-      z-index: 1;
     }
 
     .hero-content {
       position: relative;
-      z-index: 2;
-      color: white;
-      max-width: 600px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
+      z-index: 1;
+      max-width: 720px;
+      display: grid;
+      gap: 1rem;
+      text-align: center;
     }
 
-    .hero h2 {
-      font-size: 3rem;
+    .hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.25rem);
       font-family: 'Orbitron', sans-serif;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-    }
+    .hero p { font-size: 1.125rem; color: #f3f3f3; }
 
     .cta-button {
-      padding: 0.75rem 2rem;
-      background: #00bfff;
-      color: white;
+      justify-self: center;
+      padding: 0.75rem 1.75rem;
+      background: var(--brand);
+      color: #fff;
       border: none;
-      font-size: 1rem;
-      font-weight: 600;
       border-radius: 30px;
+      font-weight: 700;
       cursor: pointer;
-      transition: box-shadow 0.3s ease;
+      transition: box-shadow .3s ease, transform .05s ease;
     }
+    .cta-button:hover { box-shadow: 0 0 20px 5px rgba(0,191,255,.7); }
+    .cta-button:active { transform: translateY(1px); }
 
-    .cta-button:hover {
-      box-shadow: 0 0 20px 5px rgba(0, 191, 255, 0.7);
-    }
-
-    #counter {
-      margin-top: 2rem;
-    }
-
-    #counter h2 {
-      color: white;
-      font-size: 2rem;
-    }
-
-    .counter {
-      font-size: 3rem;
-      font-weight: bold;
-      color: white;
-    }
+    #counter { margin-top: .5rem; }
+    #counter h2 { font-size: 1.25rem; }
+    .counter { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; }
 
     #showcase {
-      background-color: #111;
-      padding: 5rem 2rem;
+      background: var(--bg-2);
+      padding: 5rem 1.25rem;
       text-align: center;
     }
 
     #showcase h2 {
-      color: #00bfff;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
+      color: var(--brand);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      margin-bottom: 1rem;
+      font-family: 'Orbitron', sans-serif;
     }
 
     #showcase p {
       color: #ccc;
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-    }
-
-    .circle-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .circle-grid img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
-      transition: transform 0.3s ease;
-    }
-
-    .circle-grid img:hover {
-      transform: scale(1.1);
-    }
-
-    #contact {
-      background-color: #fffbb7;
-      color: #2d2d2d;
-      padding: 4rem 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 2rem;
-    }
-
-    #contact h2 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    #contact p {
-      margin-top: 0.5rem;
-    }
-
-    #contact img {
-      width: 100%;
-      max-width: 450px;
-      border-radius: 8px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #111;
-      color: #888;
-      font-size: 0.9rem;
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-size: 1.05rem;
     }
 
     #on-glass {
-      background-color: #000;
-      padding: 6rem 2rem;
+      background: var(--bg);
+      padding: 5rem 1.25rem;
       text-align: center;
     }
-  
-    .on-glass-wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-  
+    .on-glass-wrapper { max-width: 1200px; margin: 0 auto; }
     #on-glass .section-title {
-      color: #00bfff;
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
+      color: var(--brand);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      margin-bottom: .75rem;
       font-family: 'Orbitron', sans-serif;
       letter-spacing: 1px;
     }
-  
     #on-glass .section-subtext {
-      color: #bbb;
-      font-size: 1.2rem;
-      margin-bottom: 3rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 2rem;
       line-height: 1.6;
+      font-size: 1.05rem;
     }
-  
     .glass-image-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
-      justify-content: center;
-      align-items: center;
+      justify-content: centre;
+      align-items: centre;
     }
-  
     .glass-image-grid img {
       width: 280px;
+      height: auto;
       max-width: 100%;
       border-radius: 12px;
-      box-shadow: 0 0 25px rgba(0, 191, 255, 0.3);
+      box-shadow: 0 0 25px rgba(0,191,255,.3);
       object-fit: cover;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transition: transform .4s ease, box-shadow .4s ease;
     }
-  
     .glass-image-grid img:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 35px rgba(0, 191, 255, 0.6);
+      box-shadow: 0 0 35px rgba(0,191,255,.6);
     }
-</style>
-  
 
-  
+    /* Contact */
+    #contact-info {
+      background: #fffbb7;
+      color: #2d2d2d;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    #contact-info a { color: var(--brand); text-decoration: none; }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--bg-2);
+      color: #888;
+      font-size: .95rem;
+    }
+
+    /* Mobile navigation */
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: var(--header-h);
+        right: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 1rem 1.5rem;
+        display: none;
+      }
+      nav.active { display: flex; }
+      nav a { padding: .5rem 0; font-size: 1.1rem; }
+      .menu-toggle { display: inline-block; }
+    }
+  </style>
 </head>
-
 <body>
-
   <header>
-    <h1>PromoShields</h1>
-    <nav>
+    <a class="logo" href="#hero" aria-label="PromoShields home">PromoShields</a>
+
+    <button class="menu-toggle"
+            aria-label="Toggle menu"
+            aria-controls="site-nav"
+            aria-expanded="false">☰</button>
+
+    <nav id="site-nav">
       <a href="#hero">Home</a>
       <a href="#showcase">Imagine</a>
-      <a href="#contact.html">Contact</a>
+      <a href="#contact-info">Contact</a>
       <a href="product.html">Product</a>
-      <a href="about.html">Our Story</a>
+      <a href="about.html">Our story</a>
     </nav>
   </header>
 
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <h2>Protect What Matters.</h2>
-      <p>Prevent drink spiking with eco-safe PromoShields.</p>
-      <a href="#showcase" class="cta-button">Discover Possibilities</a>
-      <section id="counter">
-        <h2>Drinks Across New Zealand Protected</h2>
-        <div class="counter" id="counter-value">2,500</div>
-      </section>
-    </div>
-  </section>
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <h1>Protect what matters</h1>
+        <p>Help prevent drink spiking with eco-safe PromoShields.</p>
+        <a href="#showcase" class="cta-button">Discover possibilities</a>
 
-  <section id="showcase">
-    <h2>Endless Advertising Possibilities</h2>
-    <p>
-      PromoShields aren't just for protection — they're your personal canvas for creativity. Design your drink shields to match your brand, event, or campaign. From bold logos to interactive QR codes linking to bar menus or promotional offers — the options are limitless.
-    </p>
+        <section id="counter" aria-live="polite">
+          <h2>Drinks protected across Aotearoa</h2>
+          <div class="counter" id="counter-value">2,500</div>
+        </section>
+      </div>
+    </section>
 
-    </div>
-  </section>
+    <section id="showcase">
+      <h2>Endless advertising possibilities</h2>
+      <p>
+        PromoShields are not only for protection, they are also your canvas. Match your brand or event, add logos, and link QR codes to menus or offers.
+      </p>
+    </section>
 
-  <section id="on-glass">
-  <div class="on-glass-wrapper" data-aos="fade-up">
-    <h2 class="section-title">Real Covers on Real Glasses</h2>
-    <p class="section-subtext">
-      See PromoShields in action – sleek, secure, and seamlessly integrated into any night out.
-    </p>
-    <div class="glass-image-grid">
-      <img 
-  src="https://raw.githubusercontent.com/FletcherLochhead/promoshields-site/main/thumbnail_Subject.png" 
-  alt="PromoShields Anti-Drink Spiking Covers" 
-  data-aos="zoom-in" 
-  data-aos-delay="500"
-/>
+    <section id="on-glass">
+      <div class="on-glass-wrapper" data-aos="fade-up">
+        <h2 class="section-title">Real covers on real glasses</h2>
+        <p class="section-subtext">
+          See PromoShields in action, sleek and secure, ready for any night out.
+        </p>
+        <div class="glass-image-grid">
+          <img
+            src="https://raw.githubusercontent.com/FletcherLochhead/promoshields-site/main/thumbnail_Subject.png"
+            alt="PromoShields cover fitted on a cocktail glass"
+            width="560" height="560"
+            loading="lazy"
+            decoding="async"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          />
+        </div>
+      </div>
+    </section>
 
-    </div>
-  </div>
-</section>
-
-
-<section id="contact-info" style="background-color: #111; color: white; text-align: center; padding: 2rem 1rem;">
-  <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Contact Us</h3>
-  <p style="font-size: 1rem; margin: 0.25rem 0;">
-    📞 Phone: <a href="tel:021959152" style="color: #00bfff; text-decoration: none;">021 959 152</a>
-  </p>
-  <p style="font-size: 1rem; margin: 0.25rem 0;">
-    📧 Email: <a href="mailto:promoshields@gmail.com" style="color: #00bfff; text-decoration: none;">promoshields@gmail.com</a>
-  </p>
-</section>
+    <section id="contact-info">
+      <h3>Contact us</h3>
+      <p>📞 Phone: <a href="tel:+6421959152">021 959 152</a></p>
+      <p>📧 Email: <a href="mailto:promoshields@gmail.com">promoshields@gmail.com</a></p>
+    </section>
+  </main>
 
   <footer>
     &copy; 2025 PromoShields Ltd. All rights reserved.
   </footer>
 
-  <script>
-    const counter = document.getElementById("counter-value");
-    let value = 2500;
-    setInterval(() => {
-      value++;
-      counter.textContent = value.toLocaleString();
-    }, 3000);
-  </script>
-  <!-- AOS Animation Scripts -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-  AOS.init();
-  </script>
-<script>
-  function toggleMenu() {
-    const nav = document.querySelector('nav');
-    nav.classList.toggle('active');
-  }
-</script>
-</body>
+  <!-- Scripts -->
+  <script defer>
+    // Mobile menu
+    const toggleBtn = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('site-nav');
 
+    function toggleMenu() {
+      const open = nav.classList.toggle('active');
+      toggleBtn.setAttribute('aria-expanded', String(open));
+    }
+    toggleBtn.addEventListener('click', toggleMenu);
+
+    // Counter that pauses in background and caps growth
+    const counterEl = document.getElementById('counter-value');
+    let value = 2500;
+    let ticks = 0;
+    function step() {
+      if (document.hidden) return;
+      if (ticks >= 200) return; // cap to avoid endless growth
+      value += 1;
+      counterEl.textContent = value.toLocaleString();
+      ticks += 1;
+    }
+    setInterval(step, 3000);
+
+    // Respect reduced motion for AOS
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced) {
+      const initAOS = () => window.AOS && window.AOS.init();
+      if (document.readyState === 'complete') initAOS();
+      else window.addEventListener('load', initAOS);
+    }
+  </script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+
+  <noscript>
+    <style>
+      [data-aos] { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+</body>
 </html>
