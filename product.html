@@ -2,168 +2,172 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Product | PromoShields</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="PromoShields Ltd | Product details and features." />
+  <title>PromoShields Ltd | Product</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --brand: #00bfff;
+      --bg: #000;
+      --bg-2: #111;
+      --text: #fff;
+      --text-muted: #bbb;
+      --header-h: 72px;
     }
 
-    html, body {
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
       font-family: 'Poppins', sans-serif;
-      color: white;
-      background-color: #000;
-      scroll-behavior: smooth;
+      padding-top: var(--header-h);
     }
 
     header {
       position: fixed;
-      width: 100%;
-      padding: 1rem 2rem;
-      z-index: 1000;
+      top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px);
+      padding: 0 1rem;
+      z-index: 1000;
     }
 
-    header h1 {
+    .logo {
+      color: var(--text);
       font-family: 'Orbitron', sans-serif;
-      color: white;
+      font-weight: 800;
+      font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+      text-decoration: none;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: 600;
+    nav.links {
+      display: flex;
+      gap: clamp(.6rem, 1.6vw, 1.25rem);
+      white-space: nowrap;
     }
+    nav.links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: clamp(.9rem, 1.2vw, 1rem);
+    }
+    nav.links a:hover { color: var(--brand); }
+
+    .nav-select { display: none; }
+    .nav-select select {
+      background: #111;
+      color: #fff;
+      border: 1px solid #333;
+      padding: .4rem .6rem;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .sr-only { position: absolute; width:1px; height:1px; overflow:hidden; }
 
     main {
-      padding-top: 100px;
-      max-width: 1000px;
-      margin: auto;
-      padding: 5rem 2rem;
-    }
-
-    h2 {
-      font-size: 2.5rem;
-      color: #00bfff;
-      margin-bottom: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
       text-align: center;
     }
 
-    .section {
-      margin-bottom: 3rem;
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--brand); /* blue like Contact/Gallery */
+      margin-bottom: 1rem;
     }
 
-    .section p {
+    p {
       font-size: 1.1rem;
       line-height: 1.6;
-      color: #ccc;
-    }
-
-    .images {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-
-    .images img {
-      width: 300px;
-      border-radius: 16px;
-      border: 2px solid #00bfff;
-    }
-
-    .how-it-works {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-      text-align: center;
-    }
-
-    .how-it-works div {
-      background-color: #111;
-      padding: 2rem;
-      border-radius: 16px;
-      border: 1px solid #333;
-      transition: transform 0.3s;
-    }
-
-    .how-it-works div:hover {
-      transform: translateY(-5px);
-    }
-
-    .how-it-works h3 {
-      color: #00bfff;
-      margin-bottom: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
     }
 
     footer {
       text-align: center;
-      padding: 2rem;
-      background-color: #111;
+      padding: 2rem 1rem;
+      background: var(--bg-2);
       color: #888;
-      font-size: 0.9rem;
+      font-size: .95rem;
+    }
+
+    @media (max-width: 520px) {
+      nav.links { display: none; }
+      .nav-select { display: block; }
     }
   </style>
 </head>
-
 <body>
-
   <header>
-    <h1>PromoShields</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
+    <a class="logo" href="index.html#hero">PromoShields</a>
+
+    <!-- Menu same order as index -->
+    <nav class="links">
+      <a href="index.html#hero">Home</a>
+      <a href="index.html#showcase">Imagine</a>
+      <a href="index.html#on-glass">Gallery</a>
+      <a href="index.html#contact-info">Contact</a>
       <a href="product.html">Product</a>
-      <a href="counter.html">Counter</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html">Our story</a>
     </nav>
+
+    <div class="nav-select">
+      <label class="sr-only" for="site-nav-select">Menu</label>
+      <select id="site-nav-select">
+        <option value="">Menu</option>
+        <option value="index.html#hero">Home</option>
+        <option value="index.html#showcase">Imagine</option>
+        <option value="index.html#on-glass">Gallery</option>
+        <option value="index.html#contact-info">Contact</option>
+        <option value="product.html">Product</option>
+        <option value="about.html">Our story</option>
+      </select>
+    </div>
   </header>
 
   <main>
-    <h2>Our Product</h2>
+    <h1>Our Product</h1>
+    <p>
+      PromoShields are eco-safe drink covers designed to help prevent drink spiking while doubling
+      as a creative advertising platform. Customisable with logos, colours, and QR codes, they’re
+      the perfect blend of safety and innovation.
+    </p>
 
-    <div class="section">
-      <p>PromoShields are eco-friendly, single-use drink covers designed to protect people from drink spiking — while giving businesses a powerful new way to advertise.</p>
-      <p>Each cover is made from recyclable material and fits over most glasses and cups. Customers simply peel it off the stack, press it over their drink, and enjoy peace of mind.</p>
-
-      <div class="images">
-        <!-- Replace these with real images -->
-        <img src="images/cover-on-glass-1.jpg" alt="PromoShield on drink" />
-        <img src="images/cover-on-glass-2.jpg" alt="PromoShield example" />
-      </div>
-    </div>
-
-    <h2>How It Works</h2>
-
-    <div class="how-it-works">
-      <div>
-        <h3>✅ Bars Get It Free</h3>
-        <p>PromoShields are supplied at no cost to hospitality venues. Simply display the dispenser and give customers access to protection — no setup, no hassle.</p>
-      </div>
-      <div>
-        <h3>📢 Businesses Advertise</h3>
-        <p>Each PromoShield is custom-branded with a business's message. It’s direct, physical marketing — right in the hands of your target audience.</p>
-      </div>
-      <div>
-        <h3>🛡️ Customers Get Protected</h3>
-        <p>Patrons get peace of mind knowing their drink is safer from tampering. A simple, effective way to enjoy nights out with less worry.</p>
-      </div>
-    </div>
+    <!-- Add your product images/details here -->
   </main>
 
   <footer>
     &copy; 2025 PromoShields Ltd. All rights reserved.
   </footer>
 
+  <script>
+    // Small phone dropdown nav
+    const navSelect = document.getElementById('site-nav-select');
+    if (navSelect) {
+      navSelect.addEventListener('change', (e) => {
+        const v = e.target.value;
+        if (!v) return;
+        if (v.startsWith('#') || v.includes('.html#')) {
+          window.location.href = v;
+        } else {
+          window.location.href = v;
+        }
+        e.target.selectedIndex = 0;
+      });
+    }
+  </script>
 </body>
 </html>
