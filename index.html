@@ -3,14 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="PromoShields Ltd | Protect what matters. Eco-safe drink covers that help prevent drink spiking and unlock branded experiences." />
-  <title>PromoShields Ltd | Protect what matters</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Our Product | PromoShields</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-
   <style>
     :root {
       --brand: #00bfff;
@@ -21,13 +15,16 @@
       --header-h: 72px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     html, body {
-      height: 100%;
-      background: var(--bg);
+      font-family: 'Poppins', sans-serif;
       color: var(--text);
-      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
       scroll-behavior: smooth;
     }
 
@@ -35,49 +32,48 @@
 
     header {
       position: fixed;
-      inset: 0 0 auto 0;
+      top: 0; left: 0; right: 0;
       height: var(--header-h);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      width: 100%;
       padding: 0 .75rem 0 1rem;
       z-index: 1000;
-      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(10px);
     }
 
     .logo {
-      text-decoration: none;
-      color: var(--text);
       font-family: 'Orbitron', sans-serif;
       font-weight: 800;
-      letter-spacing: .5px;
       font-size: clamp(1.6rem, 3.2vw, 2.1rem);
-      line-height: 1;
-      display: inline-flex;
-      align-items: center;
+      color: var(--text);
+      text-decoration: none;
     }
 
     nav.links {
       display: flex;
-      align-items: center;
       gap: clamp(.6rem, 1.6vw, 1.25rem);
       white-space: nowrap;
     }
+
     nav.links a {
       color: var(--text);
       text-decoration: none;
       font-weight: 600;
       font-size: clamp(.9rem, 1.2vw, 1rem);
-      opacity: .95;
-      transition: color .15s ease;
     }
+
     nav.links a:hover { color: var(--brand); }
 
-    /* Make the current menu item blue (matches product page behaviour) */
+    /* Highlight active link blue */
     nav.links a.active,
-    nav.links a[aria-current="page"] { color: var(--brand); }
+    nav.links a[aria-current="page"] {
+      color: var(--brand);
+    }
 
+    /* Dropdown for phones */
     .nav-select { display: none; }
     .nav-select select {
       background: #111;
@@ -90,132 +86,81 @@
     .sr-only {
       position: absolute;
       width: 1px; height: 1px;
-      padding: 0; margin: -1px;
       overflow: hidden;
       clip: rect(0,0,0,0);
       white-space: nowrap;
-      border: 0;
     }
 
-    section { scroll-margin-top: calc(var(--header-h) + 12px); }
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 5rem 2rem;
+    }
 
-    .hero {
-      min-height: calc(100vh - var(--header-h));
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 2rem 1.25rem;
-      position: relative;
-      background-image: url('https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-      background-size: cover;
-      background-position: center;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
-      display: grid;
-      gap: 1rem;
-      justify-items: center;
-    }
-    .hero h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2.2rem, 4.8vw, 3.4rem);
-    }
-    .hero p { font-size: 1.1rem; color: #f3f3f3; }
-
-    .cta-button {
-      padding: 0.75rem 1.5rem;
-      background: var(--brand);
-      color: #fff;
-      border: none;
-      border-radius: 28px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: box-shadow .3s ease, transform .05s ease;
-    }
-    .cta-button:hover { box-shadow: 0 0 20px 5px rgba(0,191,255,.7); }
-    .cta-button:active { transform: translateY(1px); }
-
-    #counter { margin-top: .25rem; }
-    #counter h2 { font-size: 1.05rem; }
-    .counter { font-size: clamp(2rem, 5.5vw, 3rem); font-weight: 800; }
-
-    #showcase {
-      background: var(--bg-2);
-      padding: 5rem 1.25rem;
-      text-align: center;
-    }
-    #showcase h2 {
+    /* Shared heading style */
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
       color: var(--brand);
-      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-      margin-bottom: .75rem;
       font-family: 'Orbitron', sans-serif;
+      text-align: center;
     }
-    #showcase p {
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
       color: #ccc;
-      max-width: 760px;
-      margin: 0 auto;
-      line-height: 1.6;
-      font-size: 1.05rem;
     }
 
-    #on-glass { background: var(--bg); padding: 5rem 1.25rem; text-align: center; }
-    .on-glass-wrapper { max-width: 1200px; margin: 0 auto; }
-    #on-glass .section-title {
-      color: var(--brand);
-      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-      margin-bottom: .75rem;
-      font-family: 'Orbitron', sans-serif;
-      letter-spacing: 1px;
-    }
-    #on-glass .section-subtext {
-      color: var(--text-muted);
-      max-width: 720px;
-      margin: 0 auto 2rem;
-      line-height: 1.6;
-      font-size: 1.05rem;
-    }
-    .glass-image-grid {
+    .images {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
       justify-content: center;
-      align-items: center;
-    }
-    .glass-image-grid img {
-      width: 280px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 25px rgba(0,191,255,.3);
-      object-fit: cover;
-      transition: transform .4s ease, box-shadow .4s ease;
-    }
-    .glass-image-grid img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 35px rgba(0,191,255,.6);
+      margin-top: 2rem;
     }
 
-    #contact-info {
-      background: #fffbb7;
-      color: #2d2d2d;
-      text-align: center;
-      padding: 2rem 1rem;
+    .images img {
+      width: 300px;
+      border-radius: 16px;
+      border: 2px solid var(--brand);
     }
-    #contact-info a { color: var(--brand); text-decoration: none; }
+
+    .how-it-works {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .how-it-works div {
+      background-color: #111;
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid #333;
+      transition: transform 0.3s;
+    }
+
+    .how-it-works div:hover {
+      transform: translateY(-5px);
+    }
+
+    .how-it-works h3 {
+      color: var(--brand);
+      margin-bottom: 1rem;
+    }
 
     footer {
       text-align: center;
-      padding: 2rem 1rem;
-      background: var(--bg-2);
+      padding: 2rem;
+      background-color: var(--bg-2);
       color: #888;
-      font-size: .95rem;
+      font-size: 0.9rem;
     }
 
     @media (max-width: 520px) {
@@ -224,77 +169,67 @@
     }
   </style>
 </head>
-<body>
-  <header>
-    <a class="logo" href="#hero" aria-label="PromoShields home">PromoShields</a>
 
+<body>
+
+  <header>
+    <a class="logo" href="index.html#hero">PromoShields</a>
+
+    <!-- Menu matches index -->
     <nav class="links" aria-label="Primary">
-      <a href="#hero" data-section="hero">Home</a>
-      <a href="#showcase" data-section="showcase">Imagine</a>
-      <a href="#on-glass" data-section="on-glass">Gallery</a>
-      <a href="#contact-info" data-section="contact-info">Contact</a>
-      <a href="product.html">Product</a>
+      <a href="index.html#hero">Home</a>
+      <a href="index.html#showcase">Imagine</a>
+      <a href="index.html#on-glass">Gallery</a>
+      <a href="index.html#contact-info">Contact</a>
+      <a href="product.html" class="active" aria-current="page">Product</a>
       <a href="about.html">Our story</a>
     </nav>
 
+    <!-- Dropdown for small screens -->
     <div class="nav-select">
       <label class="sr-only" for="site-nav-select">Menu</label>
       <select id="site-nav-select">
         <option value="">Menu</option>
-        <option value="#hero">Home</option>
-        <option value="#showcase">Imagine</option>
-        <option value="#on-glass">Gallery</option>
-        <option value="#contact-info">Contact</option>
-        <option value="product.html">Product</option>
+        <option value="index.html#hero">Home</option>
+        <option value="index.html#showcase">Imagine</option>
+        <option value="index.html#on-glass">Gallery</option>
+        <option value="index.html#contact-info">Contact</option>
+        <option value="product.html" selected>Product</option>
         <option value="about.html">Our story</option>
       </select>
     </div>
   </header>
 
   <main>
-    <section class="hero" id="hero">
-      <div class="hero-content">
-        <h1>Protect what matters</h1>
-        <p>Help prevent drink spiking with eco-safe PromoShields.</p>
-        <a href="#showcase" class="cta-button">Discover possibilities</a>
+    <h2 class="section-title">Our Product</h2>
 
-        <section id="counter" aria-live="polite">
-          <h2>Drinks protected across Aotearoa</h2>
-          <div class="counter" id="counter-value">2,500</div>
-        </section>
+    <div class="section">
+      <p>PromoShields are eco-friendly, single-use drink covers designed to protect people from drink spiking — while giving businesses a powerful new way to advertise.</p>
+      <p>Each cover is made from recyclable material and fits over most glasses and cups. Customers simply peel it off the stack, press it over their drink, and enjoy peace of mind.</p>
+
+      <div class="images">
+        <!-- Replace these with real images -->
+        <img src="images/cover-on-glass-1.jpg" alt="PromoShield on drink" />
+        <img src="images/cover-on-glass-2.jpg" alt="PromoShield example" />
       </div>
-    </section>
+    </div>
 
-    <section id="showcase">
-      <h2>Endless advertising possibilities</h2>
-      <p>
-        PromoShields are not only for protection, they are also your canvas. Match your brand or event, add logos, and link QR codes to menus or offers.
-      </p>
-    </section>
+    <h2 class="section-title">How It Works</h2>
 
-    <section id="on-glass">
-      <div class="on-glass-wrapper">
-        <h2 class="section-title">Real covers on real glasses</h2>
-        <p class="section-subtext">
-          See PromoShields in action, sleek and secure, ready for any night out.
-        </p>
-        <div class="glass-image-grid">
-          <img
-            src="https://raw.githubusercontent.com/FletcherLochhead/promoshields-site/main/thumbnail_Subject.png"
-            alt="PromoShields cover on a cocktail glass"
-            width="560" height="560"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
+    <div class="how-it-works">
+      <div>
+        <h3>✅ Bars Get It Free</h3>
+        <p>PromoShields are supplied at no cost to hospitality venues. Simply display the dispenser and give customers access to protection — no setup, no hassle.</p>
       </div>
-    </section>
-
-    <section id="contact-info">
-      <h3>Contact us</h3>
-      <p>📞 Phone: <a href="tel:+6421959152">021 959 152</a></p>
-      <p>📧 Email: <a href="mailto:promoshields@gmail.com">promoshields@gmail.com</a></p>
-    </section>
+      <div>
+        <h3>📢 Businesses Advertise</h3>
+        <p>Each PromoShield is custom-branded with a business's message. It’s direct, physical marketing — right in the hands of your target audience.</p>
+      </div>
+      <div>
+        <h3>🛡️ Customers Get Protected</h3>
+        <p>Patrons get peace of mind knowing their drink is safer from tampering. A simple, effective way to enjoy nights out with less worry.</p>
+      </div>
+    </div>
   </main>
 
   <footer>
@@ -302,63 +237,25 @@
   </footer>
 
   <script>
-    // Dropdown navigation for small phones
+    // Dropdown navigation for phones
     const navSelect = document.getElementById('site-nav-select');
     if (navSelect) {
       navSelect.addEventListener('change', (e) => {
         const v = e.target.value;
         if (!v) return;
-        if (v.startsWith('#')) {
-          const el = document.querySelector(v);
-          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-          window.location.href = v;
-        }
-        e.target.selectedIndex = 0;
+        window.location.href = v;
       });
     }
 
-    // Active link syncing for in-page sections
-    const links = document.querySelectorAll('nav.links a[href^="#"]');
-    const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-
-    function setActiveByHash(hash) {
-      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === hash));
-    }
-
-    // On click, update active based on the target hash immediately
-    links.forEach(a => {
-      a.addEventListener('click', () => setActiveByHash(a.getAttribute('href')));
+    // Auto-highlight active link
+    const current = window.location.pathname.split('/').pop();
+    document.querySelectorAll('nav.links a').forEach(a => {
+      const href = a.getAttribute('href');
+      if (href.endsWith(current)) {
+        a.classList.add('active');
+        a.setAttribute('aria-current', 'page');
+      }
     });
-
-    // On scroll, highlight the section in view
-    const observer = new IntersectionObserver((entries) => {
-      // pick the entry nearest the top that is intersecting
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
-      const id = '#' + visible.target.id;
-      setActiveByHash(id);
-    }, { rootMargin: '-40% 0px -50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
-
-    sections.forEach(sec => observer.observe(sec));
-
-    // On load, set based on current hash (or default to #hero)
-    setActiveByHash(location.hash || '#hero');
-
-    // Counter
-    const counterEl = document.getElementById('counter-value');
-    let value = 2500;
-    let ticks = 0;
-    function step() {
-      if (document.hidden) return;
-      if (ticks >= 200) return;
-      value += 1;
-      counterEl.textContent = value.toLocaleString();
-      ticks += 1;
-    }
-    setInterval(step, 3000);
   </script>
 </body>
 </html>
