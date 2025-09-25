@@ -126,9 +126,10 @@
 
     .images img {
       width: 300px;
-      length: 300px;
+      height: 300px;      /* square */
       border-radius: 16px;
       border: 2px solid var(--brand);
+      object-fit: cover;  /* crop, no stretch */
     }
 
     .how-it-works {
@@ -181,7 +182,7 @@
       <a href="index.html#hero">Home</a>
       <a href="index.html#showcase">Imagine</a>
       <a href="index.html#on-glass">Gallery</a>
-      <a href="index.html#contact-info">Contact</a>
+      <a href="index.html#contact">Contact</a>
       <a href="product.html" class="active" aria-current="page">Product</a>
       <a href="about.html">Our story</a>
     </nav>
@@ -194,7 +195,7 @@
         <option value="index.html#hero">Home</option>
         <option value="index.html#showcase">Imagine</option>
         <option value="index.html#on-glass">Gallery</option>
-        <option value="index.html#contact-info">Contact</option>
+        <option value="index.html#contact">Contact</option>
         <option value="product.html" selected>Product</option>
         <option value="about.html">Our story</option>
       </select>
